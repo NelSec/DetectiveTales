@@ -4,26 +4,15 @@ using UnityEngine;
 
 public class CameraMovement : MonoBehaviour
 {
+    // Start is called before the first frame update
+    void Start()
+    {
+        
+    }
 
-    [SerializeField]
-    private GameObject[] goalObject = null;
-
-    [SerializeField]
-    private Transform goal = null;
-
-    private int currentGoalObject = 0;
-    public float speed = 1.0f;
-
+    // Update is called once per frame
     void Update()
     {
-        float step = speed * Time.deltaTime;
-        if (Input.GetMouseButtonDown(0))
-        {
-            
-            goal = goalObject[currentGoalObject].transform;
-            
-            currentGoalObject++;
-        }
-        transform.position = Vector3.MoveTowards(transform.position, goal.position, step);
+        
     }
 }
