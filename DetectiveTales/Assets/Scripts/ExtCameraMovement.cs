@@ -19,6 +19,12 @@ public class ExtCameraMovement : MonoBehaviour
     public int currentGoalObject = 0;
     public float speed = 1.0f;
 
+    void Start()
+    {
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+    }
+
     void Update()
     {
         float step = speed * Time.deltaTime;
