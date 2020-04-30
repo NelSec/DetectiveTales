@@ -11,24 +11,22 @@ public class ExtCameraMovement : MonoBehaviour
     [SerializeField]
     private Transform goal = null;
 
+    private Transform previousGoal = null;
+
     public Animator animator;
     public Animator animator2;
     public Animator animator3;
     public Animator animator4;
 
     public int currentGoalObject = 0;
+    public int previousGoalObject;
     public float speed = 1.0f;
-
-    void Start()
-    {
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
-    }
 
     void Update()
     {
+        previousGoalObject = currentGoalObject - 1;
         float step = speed * Time.deltaTime;
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(1))
         {
             switch (currentGoalObject)
             {
@@ -46,8 +44,13 @@ public class ExtCameraMovement : MonoBehaviour
                     break;
             }
             goal = goalObject[currentGoalObject].transform;
-            
+
             currentGoalObject++;
+
+            if (previousGoalObject >= 0)
+            {
+                previousGoal = goalObject[previousGoalObject].transform;
+            }
         }
         transform.position = Vector3.MoveTowards(
             transform.position, goal.position, step);
