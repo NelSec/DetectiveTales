@@ -2,174 +2,123 @@
 
 public class PlayerMovement : MonoBehaviour
 {
-    private const float maxAngularAcceleration = 90.0f;
-    private const float maxForwardAcceleration = 15.0f;
-    private const float maxBackwardAcceleration = 10.0f;
-    private const float maxStrafeAcceleration = 10.0f;
-    private const float jumpAcceleration = 500.0f;
-    private const float gravityAcceleration = 20.0f;
+    private const float MAX_FORWARD_ACCELERATION    = 10.0f;
+    private const float MAX_BACKWARD_ACCELERATION   = 10.0f;
+    private const float MAX_STRAFE_ACCELERATION     = 10.0f;
+    private const float JUMP_ACCELERATION           = 350.0f;
+    private const float GRAVITY_ACCELERATION        = 20.0f;
 
-    private const float mouseAngularVelocityFactor = 5.0f;
-    private const float maxAngularVelocity = 60.0f;
-    private const float maxForwardVelocity = 4.0f;
-    private const float maxBackwardVelocity = 2.0f;
-    private const float maxStrafeVelocity = 3.0f;
-    private const float maxJumpVelocity = 50.0f;
-    private const float maxFallVelocity = 30.0f;
+    private const float MAX_FORWARD_VELOCITY    = 5.0f;
+    private const float MAX_BACKWARD_VELOCITY   = 3.0f;
+    private const float MAX_STRAFE_VELOCITY     = 4.0f;
+    private const float MAX_JUMP_VELOCITY       = 50.0f;
+    private const float MAX_FALL_VELOCITY       = 100.0f;
+    private const float ANGULAR_VELOCITY_FACTOR = 2.0f;
 
-    private const float walkVelocityFactor = 1.0f;
-    private const float runVelocityFactor = 2.0f;
+    private const float MIN_HEAD_LOOK_ROTATION  = 330.0f;
+    private const float MAX_HEAD_LOOK_ROTATION  = 60.0f;
 
-    private CharacterController controller;
+    private const float WALK_VELOCITY_FACTOR    = 1.0f;
+    private const float RUN_VELOCITY_FACTOR     = 2.0f;
 
-    private float angularAcceleration;
-    private float angularVelocity;
-    private float angularMotion;
-    private Vector3 acceleration;
-    private Vector3 velocity;
-    private Vector3 motion;
-    private float velocityFactor;
-    private bool jump;
-    private bool autoRun;
-    private bool mouseWalk;
+    private CharacterController _controller;
+    private Transform           _cameraTransform;
 
-    void Start()
+    private Vector3 _acceleration;
+    private Vector3 _velocity;
+    private float   _velocityFactor;
+    private bool    _jump;
+
+    public void Start()
     {
-        controller = GetComponent<CharacterController>();
-        angularAcceleration = 0f;
-        angularVelocity = 0f;
-        acceleration = Vector3.zero;
-        velocity = Vector3.zero;
-        velocityFactor = runVelocityFactor;
-        jump = false;
-        autoRun = false;
-        mouseWalk = false;
+        _controller         = GetComponent<CharacterController>();
+        _cameraTransform    = GetComponentInChildren<Camera>().transform;
+        _acceleration       = Vector3.zero;
+        _velocity           = Vector3.zero;
+        _velocityFactor     = WALK_VELOCITY_FACTOR;
     }
 
-    void Update()
+    public void Update()
     {
-        UpdateJump();
         UpdateVelocityFactor();
-        UpdateAutoRun();
-        UpdateMouseWalk();
+        UpdateJump();
         UpdateRotation();
-        UpdateMouseLock();
+        UpdateHeadLook();
     }
 
     private void UpdateVelocityFactor()
     {
-        velocityFactor = autoRun || !Input.GetButtonDown("Walk") ?
-            runVelocityFactor : walkVelocityFactor;
+        _velocityFactor = Input.GetButton("Run") ? RUN_VELOCITY_FACTOR : WALK_VELOCITY_FACTOR;
     }
 
     private void UpdateJump()
     {
-        if (controller.isGrounded && Input.GetButtonDown("Jump"))
-            jump = true;
-    }
-
-    private void UpdateAutoRun()
-    {
-        if (Input.GetButtonDown("AutoRun"))
-            autoRun = !autoRun;
-        else if (autoRun && (Input.GetAxis("Vertical") != 0 ||
-            velocityFactor == walkVelocityFactor || mouseWalk))
-            autoRun = false;
+        if (Input.GetButtonDown("Jump") && _controller.isGrounded)
+            _jump = true;
     }
 
     private void UpdateRotation()
     {
-        if (Input.GetMouseButton(1))
-            UpdateMouseRotation();
+        float rotation = Input.GetAxis("Mouse X") * ANGULAR_VELOCITY_FACTOR;
+
+        transform.Rotate(0f, rotation, 0f);
+    }
+
+    private void UpdateHeadLook()
+    {
+        Vector3 cameraRotation = _cameraTransform.localEulerAngles;
+
+        cameraRotation.x -= Input.GetAxis("Mouse Y") * ANGULAR_VELOCITY_FACTOR;
+
+        if (cameraRotation.x > 180.0f)
+            cameraRotation.x = Mathf.Max(cameraRotation.x, MIN_HEAD_LOOK_ROTATION);
         else
-            UpdateKeyRotation();
+            cameraRotation.x = Mathf.Min(cameraRotation.x, MAX_HEAD_LOOK_ROTATION);
+
+        _cameraTransform.localEulerAngles = cameraRotation;
     }
 
-    private void UpdateMouseRotation()
-    {
-        angularMotion = Input.GetAxis("Mouse X") * mouseAngularVelocityFactor;
-
-        transform.Rotate(0f, angularMotion, 0f);
-    }
-
-    private void UpdateKeyRotation()
-    {
-        angularAcceleration = Input.GetAxis("Horizontal") * maxAngularAcceleration *
-            velocityFactor;
-
-        if (angularAcceleration != 0)
-        {
-            angularVelocity += angularAcceleration * Time.deltaTime;
-            angularVelocity = Mathf.Clamp(angularVelocity, -maxAngularVelocity *
-                velocityFactor, maxAngularVelocity * velocityFactor);
-
-            angularMotion = angularVelocity * Time.deltaTime;
-
-            transform.Rotate(0f, angularMotion, 0f);
-        }
-        else
-            angularVelocity = 0f;
-    }
-
-    private void UpdateMouseLock()
-    {
-        if (Input.GetMouseButtonDown(1))
-            Cursor.lockState = CursorLockMode.Locked;
-        else if (Input.GetMouseButtonUp(1))
-            Cursor.lockState = CursorLockMode.None;
-    }
-
-    void FixedUpdate()
+    public void FixedUpdate()
     {
         UpdateAcceleration();
         UpdateVelocity();
         UpdatePosition();
     }
 
-    private void UpdateMouseWalk()
-    {
-        mouseWalk = Input.GetMouseButton(0) && Input.GetMouseButton(1) ||
-            Input.GetMouseButton(2);
-    }
-
     private void UpdateAcceleration()
     {
-        acceleration.z = autoRun || mouseWalk ? 1f : Input.GetAxis("Vertical");
-        acceleration.z *= (acceleration.z > 0 ? maxForwardAcceleration :
-            maxBackwardAcceleration) * velocityFactor;
+        _acceleration.z = Input.GetAxis("Vertical");
 
-        acceleration.x = Input.GetAxis("Strafe");
-        acceleration.x *= maxStrafeAcceleration * velocityFactor;
+        _acceleration.z *= (_acceleration.z > 0) ? MAX_FORWARD_ACCELERATION * _velocityFactor : MAX_BACKWARD_ACCELERATION * _velocityFactor;
 
-        if (jump)
+        _acceleration.x = Input.GetAxis("Horizontal") * MAX_STRAFE_ACCELERATION * _velocityFactor;
+
+        if (_jump)
         {
-            jump = false;
-            acceleration.y = jumpAcceleration;
+            _acceleration.y = JUMP_ACCELERATION;
+            _jump = false;
         }
-        else if (controller.isGrounded)
-            acceleration.y = 0f;
+        else if (_controller.isGrounded)
+            _acceleration.y = 0f;
         else
-            acceleration.y = -gravityAcceleration;
+            _acceleration.y = -GRAVITY_ACCELERATION;
     }
 
     private void UpdateVelocity()
     {
-        velocity += acceleration * Time.fixedDeltaTime;
+        _velocity += _acceleration * Time.fixedDeltaTime;
 
-        velocity.z = acceleration.z == 0f ? 0f : Mathf.Clamp(velocity.z,
-            -maxBackwardVelocity * velocityFactor,
-            maxForwardVelocity * velocityFactor);
-        velocity.x = acceleration.x == 0f ? 0f : Mathf.Clamp(velocity.x,
-            -maxStrafeVelocity * velocityFactor,
-            maxStrafeVelocity * velocityFactor);
-        velocity.y = acceleration.y == 0f ? -0.1f : Mathf.Clamp(velocity.y,
-            -maxFallVelocity, maxJumpVelocity);
+        _velocity.z = _acceleration.z == 0f ? _velocity.z = 0f : Mathf.Clamp(_velocity.z, -MAX_BACKWARD_VELOCITY * _velocityFactor, MAX_FORWARD_VELOCITY * _velocityFactor);
+
+        _velocity.x = _acceleration.x == 0f ? _velocity.x = 0f : Mathf.Clamp(_velocity.x, -MAX_STRAFE_VELOCITY * _velocityFactor, MAX_STRAFE_VELOCITY * _velocityFactor);
+
+        _velocity.y = _acceleration.y == 0f ? _velocity.y = -0.1f : Mathf.Clamp(_velocity.y, -MAX_FALL_VELOCITY, MAX_JUMP_VELOCITY);
     }
 
     private void UpdatePosition()
     {
-        motion = transform.TransformVector(velocity * Time.fixedDeltaTime);
+        Vector3 motion = _velocity * Time.fixedDeltaTime;
 
-        controller.Move(motion);
+        _controller.Move(transform.TransformVector(motion));
     }
 }

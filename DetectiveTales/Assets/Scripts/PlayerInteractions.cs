@@ -1,28 +1,23 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class PlayerInteractions : MonoBehaviour
 {
-    private const float maxInteractionDistance = 2.0f;
-    private const string pickUpMessage = "Pick up ";
+    private const float     MAX_INTERACTION_DISTANCE    = 2f;
+    private const string    PICK_UP_MESSAGE             = "Pick up ";
 
-    //public CanvasManager canvasManager;
-    public Button disable;
+    public CanvasManager canvasManager;
 
-    private Transform cameraTransform;
-    private Interactive currentInteractive;
-    private bool hasRequirements;
-    private List<Interactive> inventory;
-
-    private AudioSource audioSource;
+    private Transform           _cameraTransform;
+    private Interactive         _currentInteractive;
+    private bool                _hasRequirements;
+    private List<Interactive>   _inventory;
 
     public void Start()
     {
-        cameraTransform = GetComponentInChildren<Camera>().transform;
-        currentInteractive = null;
-        inventory = new List<Interactive>();
-        audioSource = GetComponent<AudioSource>();
+        _cameraTransform    = GetComponentInChildren<Camera>().transform;
+        _currentInteractive = null;
+        _inventory          = new List<Interactive>();
     }
 
     public void Update()
@@ -33,14 +28,14 @@ public class PlayerInteractions : MonoBehaviour
 
     private void CheckForInteractive()
     {
-        if (Physics.Raycast(cameraTransform.position,
-            cameraTransform.forward,
-            out RaycastHit hitInfo,
-            maxInteractionDistance))
+        if (Physics.Raycast(_cameraTransform.position, 
+                            _cameraTransform.forward,
+                            out RaycastHit hitInfo,
+                            MAX_INTERACTION_DISTANCE))
         {
             Interactive newInteractive = hitInfo.collider.GetComponent<Interactive>();
 
-            if (newInteractive != null && newInteractive != currentInteractive)
+            if (newInteractive != null && newInteractive != _currentInteractive)
                 SetCurrentInteractive(newInteractive);
             else if (newInteractive == null)
                 ClearCurrentInteractive();
@@ -51,29 +46,29 @@ public class PlayerInteractions : MonoBehaviour
 
     private void SetCurrentInteractive(Interactive newInteractive)
     {
-        currentInteractive = newInteractive;
+        _currentInteractive = newInteractive;
 
-        /*if (currentInteractive.type == Interactive.InteractiveType.pickable)
-            canvasManager.ShowInteractionPanel(pickUpMessage + currentInteractive.inventoryName);
+        if (_currentInteractive.type == Interactive.InteractiveType.PICKABLE)
+            canvasManager.ShowInteractionPanel(PICK_UP_MESSAGE + _currentInteractive.inventoryName);
         else if (HasInteractionRequirements())
         {
-            hasRequirements = true;
-            canvasManager.ShowInteractionPanel(currentInteractive.interactionText);
+            _hasRequirements = true;
+            canvasManager.ShowInteractionPanel(_currentInteractive.interactionText);
         }
         else
         {
-            hasRequirements = false;
-            canvasManager.ShowInteractionPanel(currentInteractive.requirementText);
-        }*/
+            _hasRequirements = false;
+            canvasManager.ShowInteractionPanel(_currentInteractive.requirementText);
+        }
     }
 
     private bool HasInteractionRequirements()
     {
-        if (currentInteractive.inventoryRequirements == null)
+        if (_currentInteractive.inventoryRequirements == null)
             return true;
 
-        for (int i = 0; i < currentInteractive.inventoryRequirements.Length; ++i)
-            if (!HasInInventory(currentInteractive.inventoryRequirements[i]))
+        for (int i = 0; i < _currentInteractive.inventoryRequirements.Length; ++i)
+            if (!HasInInventory(_currentInteractive.inventoryRequirements[i]))
                 return false;
 
         return true;
@@ -81,15 +76,15 @@ public class PlayerInteractions : MonoBehaviour
 
     private void ClearCurrentInteractive()
     {
-        currentInteractive = null;
-        //canvasManager.HideInteractionPanel();
+        _currentInteractive = null;
+        canvasManager.HideInteractionPanel();
     }
 
     private void CheckForInteraction()
     {
-        if (Input.GetMouseButtonDown(0) && currentInteractive != null)
+        if (Input.GetMouseButtonDown(0) && _currentInteractive != null)
         {
-            if (currentInteractive.type == Interactive.InteractiveType.pickable)
+            if (_currentInteractive.type == Interactive.InteractiveType.PICKABLE)
                 Pick();
             else
                 Interact();
@@ -98,44 +93,43 @@ public class PlayerInteractions : MonoBehaviour
 
     private void Pick()
     {
-        AddToInventory(currentInteractive);
-        currentInteractive.gameObject.SetActive(false);
-        //FindObjectOfType<AudioManager>().Play("PickUp");
+        AddToInventory(_currentInteractive);
+        _currentInteractive.gameObject.SetActive(false);
     }
 
     private void Interact()
     {
-        if (hasRequirements)
+        if (_hasRequirements)
         {
-            /*for (int i = 0; i < currentInteractive.inventoryRequirements.Length; ++i)
-                RemoveFromInventory(currentInteractive.inventoryRequirements[i]);*/
+            for (int i = 0; i < _currentInteractive.inventoryRequirements.Length; ++i)
+                RemoveFromInventory(_currentInteractive.inventoryRequirements[i]);
 
-            currentInteractive.Interact();
+            _currentInteractive.Interact();
         }
     }
 
     private void AddToInventory(Interactive item)
     {
-        inventory.Add(item);
+        _inventory.Add(item);
         UpdateInventoryIcons();
     }
 
     private void RemoveFromInventory(Interactive item)
     {
-        inventory.Remove(item);
+        _inventory.Remove(item);
         UpdateInventoryIcons();
     }
 
     private bool HasInInventory(Interactive item)
     {
-        return inventory.Contains(item);
+        return _inventory.Contains(item);
     }
 
     private void UpdateInventoryIcons()
     {
-        /*canvasManager.ClearInventoryIcons();
+        canvasManager.ClearInventoryIcons();
 
-        for (int i = 0; i < inventory.Count; i++)
-            canvasManager.SetInventoryIcon(i, inventory[i].inventoryIcon);*/
+        for (int i = 0; i < _inventory.Count; ++i)
+            canvasManager.SetInventoryIcon(i, _inventory[i].inventoryIcon);
     }
 }

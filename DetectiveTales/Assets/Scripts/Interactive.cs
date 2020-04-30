@@ -1,44 +1,26 @@
 ﻿using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class Interactive : MonoBehaviour
 {
-    public enum InteractiveType { pickable, interactOnce, interactMultiple, indirect };
+    public enum InteractiveType { PICKABLE, INTERACT_ONCE, INTERACT_MULTIPLE, INDIRECT };
 
-    public GameObject firstObjectHide;
-    public GameObject secondObjectHide;
-    public GameObject thirdObjectHide;
-    public GameObject fourthObjectHide;
-    public GameObject fifthObjectHide;
-    public GameObject sixthObjectHide;
-    public GameObject firstObjectShow;
-    public GameObject secondObjectShow;
-    public GameObject thirdObjectShow;
-    public GameObject fourthObjectShow;
-    public GameObject fifthObjectShow;
-    public GameObject sixthObjectShow;
+    public GameObject obj1;
+    public GameObject obj2;
+    public bool             isActive;
+    public InteractiveType  type;
+    public string           inventoryName;
+    public Sprite           inventoryIcon;
+    public string           requirementText;
+    public string           interactionText;
+    public Interactive[]    inventoryRequirements;
+    public Interactive[]    activationChain;
+    public Interactive[]    interactionChain;
 
-    public bool isEntering = false;
-    public bool isActive;
-    public InteractiveType type;
-    public string inventoryName;
-    public Sprite inventoryIcon;
-    public string requirementText;
-    public string interactionText;
-    public Interactive[] inventoryRequirements;
-    public Interactive[] activationChain;
-    public Interactive[] interactionChain;
-
-    private int sceneToLoad;
-
-    public Animator fadeAnimator;
-    private Animator animator;
-    public AudioSource audioSource;
+    private Animator _animator;
 
     public void Start()
     {
-        animator = GetComponent<Animator>();
-        audioSource = GetComponent<AudioSource>();
+        _animator = GetComponent<Animator>();
     }
 
     public void Activate()
@@ -48,68 +30,22 @@ public class Interactive : MonoBehaviour
 
     public void Interact()
     {
-        if (animator != null && firstObjectHide == null)
-        {
-            animator.SetTrigger("Interact");
-            //FindObjectOfType<AudioManager>().Play("DoorBeep");
-        }
-        else if (animator != null && firstObjectHide != null)
-        {
-            animator.SetTrigger("Interact");
-        }
+        if (_animator != null)
+            _animator.SetTrigger("Interact");
 
-        if (isEntering == true)
-            fadeAnimator.SetTrigger("FadeOut");
+        if (obj1 != null)
+            obj1.SetActive(false);
 
-        if (fadeAnimator != null)
-            isEntering = true;
-
-        if (firstObjectHide != null)
-            firstObjectHide.SetActive(false);
-
-        if (secondObjectHide != null)
-            secondObjectHide.SetActive(false);
-
-        if (thirdObjectHide != null)
-            thirdObjectHide.SetActive(false);
-
-        if (fourthObjectHide != null)
-            fourthObjectHide.SetActive(false);
-
-        if (fifthObjectHide != null)
-            fifthObjectHide.SetActive(false);
-
-        if (sixthObjectHide != null)
-            sixthObjectHide.SetActive(false);
-
-        if (firstObjectShow != null)
-            firstObjectShow.SetActive(true);
-
-        if (secondObjectShow != null)
-            secondObjectShow.SetActive(true);
-
-        if (thirdObjectShow != null)
-            thirdObjectShow.SetActive(true);
-
-        if (fourthObjectShow != null)
-            fourthObjectShow.SetActive(true);
-
-        if (fifthObjectShow != null)
-            fifthObjectShow.SetActive(true);
-
-        if (sixthObjectShow != null)
-            sixthObjectShow.SetActive(true);
+        if (obj2 != null)
+            obj2.SetActive(true);
 
         if (isActive)
         {
             ProcessActivationChain();
             ProcessInteractionChain();
 
-            if (type == InteractiveType.interactOnce)
-            {
+            if (type == InteractiveType.INTERACT_ONCE)
                 GetComponent<Collider>().enabled = false;
-                audioSource.Play();
-            }
         }
     }
 
@@ -129,10 +65,5 @@ public class Interactive : MonoBehaviour
             for (int i = 0; i < interactionChain.Length; ++i)
                 interactionChain[i].Interact();
         }
-    }
-
-    public void OnFadeComplete()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }
