@@ -72,7 +72,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (Input.GetButtonDown("AutoRun"))
             autoRun = !autoRun;
-        else if (autoRun && (Input.GetAxis("Forward") != 0 ||
+        else if (autoRun && (Input.GetAxis("Vertical") != 0 ||
             velocityFactor == walkVelocityFactor || mouseWalk))
             autoRun = false;
     }
@@ -94,7 +94,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void UpdateKeyRotation()
     {
-        angularAcceleration = Input.GetAxis("Rotate") * maxAngularAcceleration *
+        angularAcceleration = Input.GetAxis("Horizontal") * maxAngularAcceleration *
             velocityFactor;
 
         if (angularAcceleration != 0)
@@ -134,7 +134,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void UpdateAcceleration()
     {
-        acceleration.z = autoRun || mouseWalk ? 1f : Input.GetAxis("Forward");
+        acceleration.z = autoRun || mouseWalk ? 1f : Input.GetAxis("Vertical");
         acceleration.z *= (acceleration.z > 0 ? maxForwardAcceleration :
             maxBackwardAcceleration) * velocityFactor;
 
