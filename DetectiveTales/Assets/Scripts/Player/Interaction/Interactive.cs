@@ -2,25 +2,25 @@
 
 public class Interactive : MonoBehaviour
 {
-    public enum InteractiveType { PICKABLE, INTERACT_ONCE, INTERACT_MULTIPLE, INDIRECT };
+    public enum InteractiveType { pickable, interactOnce, interactMultiple, indirect };
 
     public GameObject obj1;
     public GameObject obj2;
-    public bool             isActive;
-    public InteractiveType  type;
-    public string           inventoryName;
-    public Sprite           inventoryIcon;
-    public string           requirementText;
-    public string           interactionText;
-    public Interactive[]    inventoryRequirements;
-    public Interactive[]    activationChain;
-    public Interactive[]    interactionChain;
+    public bool isActive;
+    public InteractiveType type;
+    public string inventoryName;
+    public Sprite inventoryIcon;
+    public string requirementText;
+    public string interactionText;
+    public Interactive[] inventoryRequirements;
+    public Interactive[] activationChain;
+    public Interactive[] interactionChain;
 
-    private Animator _animator;
+    private Animator animator;
 
     public void Start()
     {
-        _animator = GetComponent<Animator>();
+        animator = GetComponent<Animator>();
     }
 
     public void Activate()
@@ -30,8 +30,8 @@ public class Interactive : MonoBehaviour
 
     public void Interact()
     {
-        if (_animator != null)
-            _animator.SetTrigger("Interact");
+        if (animator != null)
+            animator.SetTrigger("Interact");
 
         if (obj1 != null)
             obj1.SetActive(false);
@@ -44,7 +44,7 @@ public class Interactive : MonoBehaviour
             ProcessActivationChain();
             ProcessInteractionChain();
 
-            if (type == InteractiveType.INTERACT_ONCE)
+            if (type == InteractiveType.interactOnce)
                 GetComponent<Collider>().enabled = false;
         }
     }
