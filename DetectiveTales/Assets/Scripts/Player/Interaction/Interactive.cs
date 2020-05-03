@@ -4,8 +4,8 @@ public class Interactive : MonoBehaviour
 {
     public enum InteractiveType { pickable, interactOnce, interactMultiple, indirect };
 
-    public GameObject obj1;
-    public GameObject obj2;
+    public GameObject objHide;
+    public GameObject objShow;
     public bool isActive;
     public InteractiveType type;
     public string inventoryName;
@@ -33,11 +33,11 @@ public class Interactive : MonoBehaviour
         if (animator != null)
             animator.SetTrigger("Interact");
 
-        if (obj1 != null)
-            obj1.SetActive(false);
+        if (objHide != null)
+            objHide.SetActive(false);
 
-        if (obj2 != null)
-            obj2.SetActive(true);
+        if (objShow != null)
+            objShow.SetActive(true);
 
         if (isActive)
         {

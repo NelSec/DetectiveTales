@@ -79,7 +79,7 @@ public class PlayerInteractions : MonoBehaviour
     private void ClearCurrentInteractive()
     {
         currentInteractive = null;
-        canvasManager.HideInteractionPanel();
+        canvasManager.HideInteractionPanels();
     }
 
     private void CheckForInteraction()

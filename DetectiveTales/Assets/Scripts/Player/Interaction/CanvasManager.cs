@@ -3,24 +3,27 @@ using UnityEngine.UI;
 
 public class CanvasManager : MonoBehaviour
 {
-    public GameObject   interactionPanel;
-    public Text         interactionText;
-    public Image[]      inventoryIcons;
+    public GameObject inspectionPanel;
+    public GameObject thoughtPanel;
+    public Text inspectionText;
+    public Text thoughtText;
+    public Image[] inventoryIcons;
 
     public void Start()
     {
-        HideInteractionPanel();
+        HideInteractionPanels();
     }
 
-    public void ShowInteractionPanel(string interactionMessage)
+    public void ShowInteractionPanel(string inspectionMessage)
     {
-        interactionText.text = interactionMessage;
-        interactionPanel.SetActive(true);
+        inspectionText.text = inspectionMessage;
+        inspectionPanel.SetActive(true);
     }
 
-    public void HideInteractionPanel()
+    public void HideInteractionPanels()
     {
-        interactionPanel.SetActive(false);
+        inspectionPanel.SetActive(false);
+        thoughtPanel.SetActive(false);
     }
 
     public void ClearInventoryIcons()
