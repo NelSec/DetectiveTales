@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class PlayerInteractions : MonoBehaviour
 {
+    public Dialog dialog;
+
     private const float maxInteractionDistance = 50f;
     private const string pickUpMessage = "Pick up ";
 
@@ -11,6 +13,7 @@ public class PlayerInteractions : MonoBehaviour
     private Transform cameraTransform;
     private Interactive currentInteractive;
     private bool hasRequirements;
+    public bool isConversation = false;
     private List<Interactive> inventory;
 
     public void Start()
@@ -24,6 +27,17 @@ public class PlayerInteractions : MonoBehaviour
     {
         CheckForInteractive();
         CheckForInteraction();
+    }
+
+    private void CheckForConversation()
+    {
+        if (isConversation == true)
+            TriggerDialog();
+    }
+
+    public void TriggerDialog()
+    {
+        FindObjectOfType<DialogManager>().StartDialog(dialog);
     }
 
     private void CheckForInteractive()
