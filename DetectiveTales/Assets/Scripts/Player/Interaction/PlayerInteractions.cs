@@ -5,6 +5,8 @@ public class PlayerInteractions : MonoBehaviour
 {
     public Dialog dialog;
 
+    public GameObject player;
+
     private const float maxInteractionDistance = 50f;
     private const string pickUpMessage = "Pick up ";
 
@@ -122,6 +124,7 @@ public class PlayerInteractions : MonoBehaviour
                 RemoveFromInventory(currentInteractive.inventoryRequirements[i]);
 
             currentInteractive.Interact();
+            player.GetComponent<PlayerInteractions>().enabled = false;
         }
     }
 
