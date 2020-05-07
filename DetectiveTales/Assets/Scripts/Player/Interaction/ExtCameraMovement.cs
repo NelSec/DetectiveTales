@@ -42,6 +42,12 @@ public class ExtCameraMovement : MonoBehaviour
                 case (4):
                     animator4.SetTrigger("FadeOut4");
                     break;
+                case (5):
+                    animator4.SetTrigger("FadeOut5");
+                    break;
+                case (6):
+                    animator4.SetTrigger("FadeOut6");
+                    break;
             }
             goal = goalObject[currentGoalObject].transform;
 

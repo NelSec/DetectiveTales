@@ -40,8 +40,7 @@ public class DialogManager : MonoBehaviour
         }
 
         string sentence = sentences.Dequeue();
-        StopAllCoroutines();
-        StartCoroutine(TypeSentence(sentence));
+        dialogText.text = sentence;
     }
 
     IEnumerator TypeSentence (string sentence)

@@ -125,6 +125,7 @@ public class PlayerInteractions : MonoBehaviour
 
             currentInteractive.Interact();
             player.GetComponent<PlayerInteractions>().enabled = false;
+            player.GetComponent<PlayerMovement>().enabled = false;
         }
     }
 

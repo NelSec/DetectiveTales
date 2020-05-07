@@ -4,9 +4,15 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     bool gameHasEnded = false;
+    
+    void Start()
+    {
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+    }
 
     public float restartDelay = 1f;
-    public void GameOver ()
+    public void GameOver()
     {
         if (gameHasEnded == false)
         {
