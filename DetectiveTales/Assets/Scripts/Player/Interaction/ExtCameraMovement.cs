@@ -17,6 +17,8 @@ public class ExtCameraMovement : MonoBehaviour
     public Animator animator2;
     public Animator animator3;
     public Animator animator4;
+    public Animator animator5;
+    public Animator animator6;
 
     public int currentGoalObject = 0;
     public int previousGoalObject;
@@ -43,10 +45,10 @@ public class ExtCameraMovement : MonoBehaviour
                     animator4.SetTrigger("FadeOut4");
                     break;
                 case (5):
-                    animator4.SetTrigger("FadeOut5");
+                    animator5.SetTrigger("FadeOut5");
                     break;
                 case (6):
-                    animator4.SetTrigger("FadeOut6");
+                    animator6.SetTrigger("FadeOut6");
                     break;
             }
             goal = goalObject[currentGoalObject].transform;
