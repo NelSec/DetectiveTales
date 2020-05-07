@@ -27,6 +27,7 @@ public class PlayerInteractions : MonoBehaviour
     {
         CheckForInteractive();
         CheckForInteraction();
+        CheckForConversation();
     }
 
     private void CheckForConversation()
