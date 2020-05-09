@@ -8,11 +8,26 @@ public class RayCast : MonoBehaviour
     Vector3 direction;
 
     private float rayDistance;
+    public float timeLeft = 5f;
+    [SerializeField]
+    private int killCount;
+
+    public bool allKilled;
 
     RaycastHit hit;
+
+    private static RayCast _instance;
+
+    public static RayCast instance
+    {
+        get { return _instance; }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
+        _instance = this;
+        allKilled = false;
         rayDistance = 100f;
         direction = Vector3.zero;
     }
@@ -20,6 +35,8 @@ public class RayCast : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        timeLeft -= Time.deltaTime;
+
         direction = targetTransform.position - transform.position;
 
         Debug.DrawRay(transform.position, direction * rayDistance, Color.magenta);
