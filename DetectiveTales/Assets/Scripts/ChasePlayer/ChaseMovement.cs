@@ -9,7 +9,7 @@ public class ChaseMovement : MonoBehaviour
     public float sidewaysForce = 500f;
     void FixedUpdate()
     {
-        rb.AddForce(0, 0, forwardForce * Time.deltaTime);
+        transform.position += Vector3.forward * Time.deltaTime * forwardForce;
 
         if (Input.GetKey("d"))
         {
