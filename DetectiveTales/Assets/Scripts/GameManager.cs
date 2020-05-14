@@ -18,12 +18,17 @@ public class GameManager : MonoBehaviour
         {
             gameHasEnded = true;
             Debug.Log("Loser");
-            Invoke("Restart", restartDelay);
+            Invoke("ChangeScene", restartDelay);
         }
     }
 
     void Restart()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    void ChangeScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }

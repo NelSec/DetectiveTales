@@ -548,7 +548,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 182344352}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1128683d54d4d8148968c3c7f1229094, type: 3}
   m_Name: 
@@ -623,7 +623,7 @@ MonoBehaviour:
   inventoryName: 
   inventoryIcon: {fileID: 0}
   requirementText: 
-  interactionText: Talk to barmaid
+  interactionText: Next level
   isFinal: 1
   inventoryRequirements: []
   activationChain: []
@@ -640,7 +640,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 3.43, y: 3.43, z: 6.31}
+  m_Size: {x: 3.43, y: 3.43, z: 2.62}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &215557985
 GameObject:
@@ -7408,7 +7408,7 @@ MonoBehaviour:
   inventoryName: 
   inventoryIcon: {fileID: 0}
   requirementText: 
-  interactionText: Issa package
+  interactionText: Next panel
   isFinal: 0
   inventoryRequirements: []
   activationChain: []
