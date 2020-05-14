@@ -5,7 +5,8 @@ public class Interactive : MonoBehaviour
 {
     public enum InteractiveType { pickable, interactOnce, interactMultiple, indirect };
 
-    public GameObject objHide;
+    public GameObject firstObjHide;
+    public GameObject secondObjHide;
     public GameObject objShow;
     public bool isActive;
     public InteractiveType type;
@@ -36,8 +37,11 @@ public class Interactive : MonoBehaviour
         if (animator != null)
             animator.SetTrigger("Interact");
 
-        if (objHide != null)
-            objHide.SetActive(false);
+        if (firstObjHide != null)
+            firstObjHide.SetActive(false);
+
+        if (secondObjHide != null)
+            secondObjHide.SetActive(false);
 
         if (objShow != null)
             objShow.SetActive(true);

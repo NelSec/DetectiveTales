@@ -166,7 +166,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98e29b034d9430d40a6309d2d7a01998, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objHide: {fileID: 0}
+  firstObjHide: {fileID: 0}
+  secondObjHide: {fileID: 0}
   objShow: {fileID: 0}
   isActive: 1
   type: 1
@@ -377,7 +378,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 3.43, y: 3.43, z: 6.31}
+  m_Size: {x: 3.43, y: 3.43, z: 1.5}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &81848197
 MonoBehaviour:
@@ -391,7 +392,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98e29b034d9430d40a6309d2d7a01998, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objHide: {fileID: 0}
+  firstObjHide: {fileID: 1521015540}
+  secondObjHide: {fileID: 0}
   objShow: {fileID: 182344352}
   isActive: 1
   type: 1
@@ -616,7 +618,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98e29b034d9430d40a6309d2d7a01998, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objHide: {fileID: 0}
+  firstObjHide: {fileID: 0}
+  secondObjHide: {fileID: 0}
   objShow: {fileID: 0}
   isActive: 1
   type: 1
@@ -1096,7 +1099,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98e29b034d9430d40a6309d2d7a01998, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objHide: {fileID: 0}
+  firstObjHide: {fileID: 0}
+  secondObjHide: {fileID: 0}
   objShow: {fileID: 0}
   isActive: 1
   type: 1
@@ -1121,7 +1125,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 17.99, y: 15.6, z: 219.62}
+  m_Size: {x: 17.99, y: 15.6, z: 33.01}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &310609113
 MeshRenderer:
@@ -5452,7 +5456,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98e29b034d9430d40a6309d2d7a01998, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objHide: {fileID: 0}
+  firstObjHide: {fileID: 0}
+  secondObjHide: {fileID: 0}
   objShow: {fileID: 0}
   isActive: 0
   type: 0
@@ -5670,6 +5675,12 @@ Transform:
   m_Father: {fileID: 1341816194}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1481038886 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2640863350038646713, guid: f4e96042b3968304ba1263726c57dc17,
+    type: 3}
+  m_PrefabInstance: {fileID: 379061978}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1503497620
 GameObject:
   m_ObjectHideFlags: 0
@@ -5909,7 +5920,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98e29b034d9430d40a6309d2d7a01998, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objHide: {fileID: 0}
+  firstObjHide: {fileID: 0}
+  secondObjHide: {fileID: 0}
   objShow: {fileID: 0}
   isActive: 1
   type: 1
@@ -6619,6 +6631,12 @@ Transform:
   m_Father: {fileID: 1503497621}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1621330161 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2640863350038646713, guid: f4e96042b3968304ba1263726c57dc17,
+    type: 3}
+  m_PrefabInstance: {fileID: 1719952148}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1630796637
 GameObject:
   m_ObjectHideFlags: 0
@@ -6769,7 +6787,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98e29b034d9430d40a6309d2d7a01998, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objHide: {fileID: 1637771886}
+  firstObjHide: {fileID: 1621330161}
+  secondObjHide: {fileID: 1637771886}
   objShow: {fileID: 880686873}
   isActive: 1
   type: 1
@@ -7401,7 +7420,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98e29b034d9430d40a6309d2d7a01998, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objHide: {fileID: 265229088}
+  firstObjHide: {fileID: 265229088}
+  secondObjHide: {fileID: 0}
   objShow: {fileID: 1779144124}
   isActive: 1
   type: 1
@@ -7425,7 +7445,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 143, y: 100, z: 199.1}
+  m_Size: {x: 143, y: 100, z: 74.7}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1768728478
 GameObject:
@@ -7749,7 +7769,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98e29b034d9430d40a6309d2d7a01998, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objHide: {fileID: 0}
+  firstObjHide: {fileID: 1481038886}
+  secondObjHide: {fileID: 0}
   objShow: {fileID: 622265621}
   isActive: 1
   type: 3
@@ -9173,6 +9194,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1453968338}
     m_Modifications:
+    - target: {fileID: 8141815226813523513, guid: 4e74b6639dbc5d246b5c93d9c23b0371,
+        type: 3}
+      propertyPath: m_Size.z
+      value: 74.7
+      objectReference: {fileID: 0}
     - target: {fileID: 8141815226813523514, guid: 4e74b6639dbc5d246b5c93d9c23b0371,
         type: 3}
       propertyPath: m_Name
@@ -9241,6 +9267,11 @@ PrefabInstance:
     - target: {fileID: 8141815226813523518, guid: 4e74b6639dbc5d246b5c93d9c23b0371,
         type: 3}
       propertyPath: objHide
+      value: 
+      objectReference: {fileID: 649868376}
+    - target: {fileID: 8141815226813523518, guid: 4e74b6639dbc5d246b5c93d9c23b0371,
+        type: 3}
+      propertyPath: firstObjHide
       value: 
       objectReference: {fileID: 649868376}
     m_RemovedComponents: []

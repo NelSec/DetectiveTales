@@ -2,21 +2,20 @@
 
 public class PlayerMovement : MonoBehaviour
 {
-    private const float maxAngularAcceleration = 200.0f;
+    private const float maxAngularAcceleration = 2000.0f;
     private const float maxForwardAcceleration = 10.0f;
     private const float maxBackwardAcceleration = 10.0f;
     private const float maxStrafeAcceleration = 10.0f;
     private const float gravityAcceleration = 20.0f;
 
-    private const float mouseAngularVelocityFactor = 5.0f;
-    private const float maxAngularVelocity = 150.0f;
+    private const float maxAngularVelocity = 100.0f;
     private const float maxForwardVelocity = 2.0f;
     private const float maxBackwardVelocity = 2.0f;
     private const float maxStrafeVelocity = 3.0f;
     private const float maxFallVelocity = 30.0f;
 
-    private const float walkVelocityFactor = 1.0f;
-    private const float runVelocityFactor = 2.0f;
+    private const float walkVelocityFactor = 2.0f;
+    private const float runVelocityFactor = 4.0f;
 
     private CharacterController controller;
 
@@ -27,7 +26,6 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 velocity;
     private Vector3 motion;
     private float velocityFactor;
-    private bool mouseWalk;
 
     void Start()
     {
@@ -37,40 +35,23 @@ public class PlayerMovement : MonoBehaviour
         acceleration = Vector3.zero;
         velocity = Vector3.zero;
         velocityFactor = runVelocityFactor;
-        mouseWalk = false;
     }
 
     void Update()
     {
         UpdateVelocityFactor();
-        UpdateMouseWalk();
         UpdateRotation();
-        UpdateMouseLock();
     }
 
     private void UpdateVelocityFactor()
     {
-        velocityFactor = !Input.GetButton("Walk") ? runVelocityFactor : walkVelocityFactor;
-    }
-
-    private void UpdateMouseWalk()
-    {
-        mouseWalk = (Input.GetMouseButton(0) && Input.GetMouseButton(1)) || Input.GetMouseButton(2);
+        velocityFactor =
+            !Input.GetButton("Walk") ? walkVelocityFactor : runVelocityFactor;
     }
 
     private void UpdateRotation()
     {
-        if (Input.GetMouseButton(1))
-            UpdateMouseRotation();
-        else
-            UpdateKeyRotation();
-    }
-
-    private void UpdateMouseRotation()
-    {
-        angularMotion = Input.GetAxis("Mouse X") * mouseAngularVelocityFactor;
-
-        transform.Rotate(0f, angularMotion, 0f);
+        UpdateKeyRotation();
     }
 
     private void UpdateKeyRotation()
@@ -93,14 +74,6 @@ public class PlayerMovement : MonoBehaviour
             angularVelocity = 0f;
     }
 
-    private void UpdateMouseLock()
-    {
-        if (Input.GetMouseButtonDown(1))
-            Cursor.lockState = CursorLockMode.Locked;
-        else if (Input.GetMouseButtonUp(1))
-            Cursor.lockState = CursorLockMode.None;
-    }
-
     void FixedUpdate()
     {
         UpdateAcceleration();
@@ -110,12 +83,11 @@ public class PlayerMovement : MonoBehaviour
 
     private void UpdateAcceleration()
     {
-        acceleration.z = mouseWalk ? 1f : Input.GetAxis("Vertical");
+        acceleration.z = Input.GetAxis("Vertical");
         acceleration.z *= (
-            acceleration.z > 0 ? maxForwardAcceleration : 
+            acceleration.z > 0 ? maxForwardAcceleration :
             maxBackwardAcceleration) * velocityFactor;
 
-        acceleration.x = Input.GetAxis("Strafe");
         acceleration.x *= maxStrafeAcceleration * velocityFactor;
 
         if (controller.isGrounded)

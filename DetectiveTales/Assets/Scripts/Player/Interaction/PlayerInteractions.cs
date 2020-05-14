@@ -7,7 +7,7 @@ public class PlayerInteractions : MonoBehaviour
 
     public GameObject player;
 
-    private const float maxInteractionDistance = 50f;
+    private const float maxInteractionDistance = 70f;
     private const string pickUpMessage = "Pick up ";
 
     public CanvasManager canvasManager;
