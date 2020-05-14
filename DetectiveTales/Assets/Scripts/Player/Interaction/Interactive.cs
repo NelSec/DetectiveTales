@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Interactive : MonoBehaviour
 {
@@ -12,10 +13,12 @@ public class Interactive : MonoBehaviour
     public Sprite inventoryIcon;
     public string requirementText;
     public string interactionText;
+    public bool isFinal = false;
     public Interactive[] inventoryRequirements;
     public Interactive[] activationChain;
     public Interactive[] interactionChain;
 
+    public Animator fadeAnimator;
     private Animator animator;
 
     public void Start()
@@ -38,6 +41,9 @@ public class Interactive : MonoBehaviour
 
         if (objShow != null)
             objShow.SetActive(true);
+
+        if (isFinal == true)
+            fadeAnimator.SetTrigger("FadeOut");
 
         if (isActive)
         {
@@ -65,5 +71,10 @@ public class Interactive : MonoBehaviour
             for (int i = 0; i < interactionChain.Length; ++i)
                 interactionChain[i].Interact();
         }
+    }
+
+    public void OnFadeComplete()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }
