@@ -16,8 +16,8 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
+  - Page
+  - Panels
   - 
   - 
   - 
@@ -41,6 +41,12 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Page
+    uniqueID: 3315177913
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Panels
+    uniqueID: 794747699
     locked: 0
