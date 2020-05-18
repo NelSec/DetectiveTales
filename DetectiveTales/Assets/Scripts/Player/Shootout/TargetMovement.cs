@@ -23,6 +23,6 @@ public class TargetMovement : MonoBehaviour
         vValue = Input.GetAxis("Vertical");
         Vector3 direction = new Vector3(hValue,vValue,0f);
 
-        rb.velocity = direction * 300f * Time.deltaTime;
+        rb.velocity = direction * 200f * Time.deltaTime;
     }
 }
