@@ -30,7 +30,7 @@ public class ExtCameraMovement : MonoBehaviour
         float step = speed * Time.deltaTime;
         if (Input.GetMouseButtonDown(1))
         {
-            switch (currentGoalObject)
+            /*switch (currentGoalObject)
             {
                 case (1):
                     animator.SetTrigger("FadeOut");
@@ -50,7 +50,7 @@ public class ExtCameraMovement : MonoBehaviour
                 case (6):
                     animator6.SetTrigger("FadeOut6");
                     break;
-            }
+            }*/
             goal = goalObject[currentGoalObject].transform;
 
             currentGoalObject++;
