@@ -7,7 +7,9 @@ public class Interactive : MonoBehaviour
 
     public GameObject firstObjHide;
     public GameObject secondObjHide;
-    public GameObject objShow;
+    public GameObject firstObjShow;
+    public GameObject secondObjShow;
+    public GameObject transition;
     public bool isActive;
     public InteractiveType type;
     public string inventoryName;
@@ -15,6 +17,7 @@ public class Interactive : MonoBehaviour
     public string requirementText;
     public string interactionText;
     public bool isFinal = false;
+    public bool toTransition;
     public Interactive[] inventoryRequirements;
     public Interactive[] activationChain;
     public Interactive[] interactionChain;
@@ -43,8 +46,11 @@ public class Interactive : MonoBehaviour
         if (secondObjHide != null)
             secondObjHide.SetActive(false);
 
-        if (objShow != null)
-            objShow.SetActive(true);
+        if (firstObjShow != null)
+            firstObjShow.SetActive(true);
+
+        if (secondObjShow != null)
+            secondObjShow.SetActive(true);
 
         if (isFinal == true)
             fadeAnimator.SetTrigger("FadeOut");
@@ -53,10 +59,17 @@ public class Interactive : MonoBehaviour
         {
             ProcessActivationChain();
             ProcessInteractionChain();
+            toTransition = true;
+            Invoke("SetBoolBack", 1);
 
             if (type == InteractiveType.interactOnce)
                 GetComponent<Collider>().enabled = false;
         }
+    }
+
+    private void SetBoolBack()
+    {
+        toTransition = false;
     }
 
     private void ProcessActivationChain()

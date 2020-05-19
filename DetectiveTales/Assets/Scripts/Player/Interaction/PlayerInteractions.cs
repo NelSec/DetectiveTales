@@ -101,7 +101,7 @@ public class PlayerInteractions : MonoBehaviour
 
     private void CheckForInteraction()
     {
-        if (Input.GetMouseButtonDown(0) && currentInteractive != null)
+        if (Input.GetKeyDown("space") && currentInteractive != null)
         {
             if (currentInteractive.type == Interactive.InteractiveType.pickable)
                 Pick();
