@@ -26,6 +26,10 @@ public class ExtCameraMovement : MonoBehaviour
     public Animator animator4;
     public Animator animator5;
     public Animator animator6;
+    public Animator animator7;
+    public Animator animator8;
+    public Animator animator9;
+    public Animator animator10;
 
     public int currentGoalObject = 0;
     public int previousGoalObject;
@@ -50,27 +54,39 @@ public class ExtCameraMovement : MonoBehaviour
             Input.GetKeyDown("space") && transition5.GetComponent<Interactive>().toTransition == true ||
             Input.GetKeyDown("space") && transition6.GetComponent<Interactive>().toTransition == true*/)
         {
-            /*switch (currentGoalObject)
+            switch (currentGoalObject)
             {
-                case (1):
+                case (0):
                     animator.SetTrigger("FadeOut");
                     break;
-                case (2):
+                case (1):
                     animator2.SetTrigger("FadeOut2");
                     break;
-                case (3):
+                case (2):
                     animator3.SetTrigger("FadeOut3");
                     break;
-                case (4):
+                case (3):
                     animator4.SetTrigger("FadeOut4");
                     break;
-                case (5):
+                case (4):
                     animator5.SetTrigger("FadeOut5");
                     break;
-                case (6):
+                case (5):
                     animator6.SetTrigger("FadeOut6");
                     break;
-            }*/
+                case (6):
+                    animator7.SetTrigger("FadeOut7");
+                    break;
+                case (7):
+                    animator8.SetTrigger("FadeOut8");
+                    break;
+                case (8):
+                    animator9.SetTrigger("FadeOut9");
+                    break;
+                case (9):
+                    animator10.SetTrigger("FadeOut10");
+                    break;
+            }
             goal = goalObject[currentGoalObject].transform;
 
             currentGoalObject++;
