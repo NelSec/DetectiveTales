@@ -7,6 +7,7 @@ public class Interactive : MonoBehaviour
 
     public GameObject firstObjHide;
     public GameObject secondObjHide;
+    public GameObject thirdObjHide;
     public GameObject firstObjShow;
     public GameObject secondObjShow;
     public GameObject transition;
@@ -45,6 +46,9 @@ public class Interactive : MonoBehaviour
 
         if (secondObjHide != null)
             secondObjHide.SetActive(false);
+
+        if (thirdObjHide != null)
+            thirdObjHide.SetActive(false);
 
         if (firstObjShow != null)
             firstObjShow.SetActive(true);
