@@ -2,14 +2,21 @@
 
 public class PlayerCollision : MonoBehaviour
 {
-    public ChaseMovement movement; 
+    public ChaseMovement movement;
 
+    private Vector3 initialPos;
+
+    private void Start()
+    {
+        initialPos = transform.position;
+    }
     void OnCollisionEnter (Collision collisionInfo)
     {
         if (collisionInfo.collider.tag == "Obstacle")
         {
-            movement.enabled = false;
-            FindObjectOfType<GameManager>().GameOver();
+            transform.position = initialPos;
+            //movement.enabled = false;
+            //FindObjectOfType<GameManager>().GameOver();
         }
         if (collisionInfo.collider.tag == "End")
         {

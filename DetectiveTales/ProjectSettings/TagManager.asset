@@ -8,6 +8,7 @@ TagManager:
   - Enemy
   - Obstacle
   - End
+  - Medium
   layers:
   - Default
   - TransparentFX
