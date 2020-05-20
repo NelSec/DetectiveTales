@@ -8,11 +8,14 @@ public class RayCast : MonoBehaviour
     Vector3 direction;
 
     private float rayDistance;
-    public float timeLeft = 5f;
+    public float timeLeft = 10f;
     [SerializeField]
     private int killCount;
     [SerializeField]
     private GameObject[] enemies;
+
+    [SerializeField]
+    private GameObject enemyPrefab;
 
     public bool allKilled;
 
@@ -50,6 +53,25 @@ public class RayCast : MonoBehaviour
         }
 
         if (killCount == enemies.Length)
+        {
             SceneController.instance.objetiveDone = true;
+            allKilled = true;
+        }
+        else if(timeLeft <= 0)
+        {
+            foreach(GameObject enemy in enemies)
+            {
+                Destroy(enemy);
+            }
+            GameObject enemyInspector = GameObject.Find("Enemies1(Clone)");
+            GameObject otherEnemyInspector = GameObject.Find("Enemies2(Clone)");
+            Destroy(enemyInspector);
+            Destroy(otherEnemyInspector);
+            Instantiate(enemyPrefab);
+
+            killCount = 0;
+            timeLeft = 10f;
+        }
+            
     }
 }
