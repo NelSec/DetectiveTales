@@ -13,12 +13,12 @@ public class ExtCameraMovement : MonoBehaviour
 
     private Transform previousGoal = null;
 
-    public GameObject transition;
+    /*public GameObject transition;
     public GameObject transition2;
     public GameObject transition3;
     public GameObject transition4;
     public GameObject transition5;
-    public GameObject transition6;
+    public GameObject transition6;*/
 
     public Animator animator;
     public Animator animator2;
@@ -36,19 +36,19 @@ public class ExtCameraMovement : MonoBehaviour
         previousGoalObject = currentGoalObject - 1;
         float step = speed * Time.deltaTime;
 
-        if(Input.GetKeyDown("space") && currentGoalObject < 1)
+        /*if(Input.GetKeyDown("space") && currentGoalObject < 1)
         {
             goal = goalObject[currentGoalObject].transform;
 
             currentGoalObject++;
-        }
-        else if (
-            Input.GetKeyDown("space") && transition.GetComponent<Interactive>().toTransition == true ||
+        }*/
+        if (
+            Input.GetKeyDown("e") /*&& transition.GetComponent<Interactive>().toTransition == true ||
             Input.GetKeyDown("space") && transition2.GetComponent<Interactive>().toTransition == true ||
             Input.GetKeyDown("space") && transition3.GetComponent<Interactive>().toTransition == true ||
             Input.GetKeyDown("space") && transition4.GetComponent<Interactive>().toTransition == true ||
             Input.GetKeyDown("space") && transition5.GetComponent<Interactive>().toTransition == true ||
-            Input.GetKeyDown("space") && transition6.GetComponent<Interactive>().toTransition == true)
+            Input.GetKeyDown("space") && transition6.GetComponent<Interactive>().toTransition == true*/)
         {
             /*switch (currentGoalObject)
             {

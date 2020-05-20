@@ -17,7 +17,7 @@ public class Interactive : MonoBehaviour
     public string requirementText;
     public string interactionText;
     public bool isFinal = false;
-    public bool toTransition;
+    //public bool toTransition;
     public Interactive[] inventoryRequirements;
     public Interactive[] activationChain;
     public Interactive[] interactionChain;
@@ -59,18 +59,18 @@ public class Interactive : MonoBehaviour
         {
             ProcessActivationChain();
             ProcessInteractionChain();
-            toTransition = true;
-            Invoke("SetBoolBack", 1);
+            //toTransition = true;
+            //Invoke("SetBoolBack", 1);
 
             if (type == InteractiveType.interactOnce)
                 GetComponent<Collider>().enabled = false;
         }
     }
 
-    private void SetBoolBack()
+    /*private void SetBoolBack()
     {
         toTransition = false;
-    }
+    }*/
 
     private void ProcessActivationChain()
     {
