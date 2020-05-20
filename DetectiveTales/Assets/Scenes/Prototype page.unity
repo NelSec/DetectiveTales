@@ -3506,6 +3506,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 7343460292674232955, guid: a1d83a0e79a0d6645aafe8c81aab6517,
         type: 3}
+    - target: {fileID: 1189389146481182833, guid: cdf1cf3c3163454479973a9b22eac1c0,
+        type: 3}
+      propertyPath: timeLeft
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 4685443031704635523, guid: cdf1cf3c3163454479973a9b22eac1c0,
         type: 3}
       propertyPath: m_Name
