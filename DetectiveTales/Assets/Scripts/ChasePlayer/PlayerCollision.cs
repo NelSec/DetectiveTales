@@ -10,6 +10,11 @@ public class PlayerCollision : MonoBehaviour
         {
             movement.enabled = false;
             FindObjectOfType<GameManager>().GameOver();
-        }  
+        }
+        if (collisionInfo.collider.tag == "End")
+        {
+            movement.enabled = false;
+            SceneController.instance.objetiveDone = true;
+        }
     }
 }

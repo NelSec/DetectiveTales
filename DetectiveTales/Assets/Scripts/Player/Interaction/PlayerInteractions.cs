@@ -107,6 +107,7 @@ public class PlayerInteractions : MonoBehaviour
                 Pick();
             else
                 Interact();
+            SceneController.instance.objetiveDone = true;
         }
     }
 

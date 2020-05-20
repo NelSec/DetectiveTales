@@ -11,6 +11,8 @@ public class RayCast : MonoBehaviour
     public float timeLeft = 5f;
     [SerializeField]
     private int killCount;
+    [SerializeField]
+    private GameObject[] enemies;
 
     public bool allKilled;
 
@@ -44,6 +46,10 @@ public class RayCast : MonoBehaviour
         if (Physics.Raycast(transform.position, direction * rayDistance, out hit, rayDistance) && hit.transform.tag == "Enemy" && Input.GetKeyDown("space"))
         {
             Destroy(hit.transform.gameObject);
+            killCount++;
         }
+
+        if (killCount == enemies.Length)
+            SceneController.instance.objetiveDone = true;
     }
 }

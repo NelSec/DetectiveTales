@@ -11,19 +11,32 @@ public class SceneController : MonoBehaviour
         get { return _instance; }
     }
 
+    public int sceneNumber;
     public bool objetiveDone;
 
     [SerializeField]
     private GameObject[] scenes;
 
-    void Start()
+    void Awake()
     {
         _instance = this;
-        objetiveDone = false;
+        objetiveDone = true;
+        sceneNumber = 0;
     }
 
     void Update()
     {
-        
+        if(objetiveDone && Input.GetKeyDown("e"))
+        {
+            objetiveDone = false;
+            if (sceneNumber == 0)
+                scenes[sceneNumber].SetActive(true);
+            else
+            {
+                scenes[sceneNumber].SetActive(true);
+                scenes[sceneNumber - 1].SetActive(false);
+            }
+            sceneNumber++;
+        }
     }
 }
