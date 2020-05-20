@@ -16,6 +16,8 @@ public class SceneController : MonoBehaviour
 
     [SerializeField]
     private GameObject[] scenes;
+    [SerializeField]
+    private GameObject warningText;
 
     void Awake()
     {
@@ -38,5 +40,10 @@ public class SceneController : MonoBehaviour
             }
             sceneNumber++;
         }
+
+        if (objetiveDone)
+            warningText.SetActive(true);
+        else
+            warningText.SetActive(false);
     }
 }
