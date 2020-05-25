@@ -10,6 +10,7 @@ public class Interactive : MonoBehaviour
     public GameObject thirdObjHide;
     public GameObject firstObjShow;
     public GameObject secondObjShow;
+    public GameObject thirdObjShow;
     public GameObject transition;
     public bool isActive;
     public InteractiveType type;
@@ -55,6 +56,9 @@ public class Interactive : MonoBehaviour
 
         if (secondObjShow != null)
             secondObjShow.SetActive(true);
+
+        if (thirdObjShow != null)
+            thirdObjShow.SetActive(true);
 
         if (isFinal == true)
             fadeAnimator.SetTrigger("FadeOut");
