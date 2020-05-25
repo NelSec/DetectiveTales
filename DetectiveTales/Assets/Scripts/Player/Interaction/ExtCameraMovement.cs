@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class ExtCameraMovement : MonoBehaviour
 {
-
     [SerializeField]
     private GameObject[] goalObject = null;
 
@@ -30,6 +29,8 @@ public class ExtCameraMovement : MonoBehaviour
     public Animator animator8;
     public Animator animator9;
     public Animator animator10;
+
+    public AudioSource ambient; 
 
     public int currentGoalObject = 0;
     public int previousGoalObject;
@@ -75,13 +76,14 @@ public class ExtCameraMovement : MonoBehaviour
                     animator6.SetTrigger("FadeOut6");
                     break;
                 case (6):
-                    animator7.SetTrigger("FadeOut7");
+                    animator7.SetTrigger("FadeOut7");                    
                     break;
                 case (7):
-                    animator8.SetTrigger("FadeOut8");
+                    animator8.SetTrigger("FadeOut8");                   
                     break;
                 case (8):
                     animator9.SetTrigger("FadeOut9");
+                    ambient.Stop();
                     break;
                 case (9):
                     animator10.SetTrigger("FadeOut10");

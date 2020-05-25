@@ -8,6 +8,19 @@ public class AudioManager : MonoBehaviour
 
     public static AudioManager instance;
 
+    private AudioSource audioSrc;
+
+    private AudioClip[] deathSounds;
+
+    private int randomDeathSound;
+
+    void Start()
+    {
+        instance = this;
+        audioSrc = GetComponent<AudioSource>();
+        deathSounds = Resources.LoadAll<AudioClip>("DeathSounds");
+    }
+
     private void Awake()
     {
         if (instance == null)
@@ -31,15 +44,17 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    private void Start()
-    {
-        Play("");
-    }
     public void Play (string name)
     {
         Sound s = Array.Find(sounds, sound => sound.name == name);
         if (s == null)
             return;
         s.source.Play();
+    }
+
+    public void PlayDeathSound()
+    {
+        randomDeathSound = UnityEngine.Random.Range(0, 3);
+        audioSrc.PlayOneShot(deathSounds[randomDeathSound]);
     }
 }

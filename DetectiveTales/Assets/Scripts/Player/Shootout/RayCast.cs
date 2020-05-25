@@ -7,6 +7,8 @@ public class RayCast : MonoBehaviour
     public Transform targetTransform;
     Vector3 direction;
 
+    public AudioSource gun;
+
     private float rayDistance;
     public float timeLeft = 10f;
     [SerializeField]
@@ -49,6 +51,8 @@ public class RayCast : MonoBehaviour
         if (Physics.Raycast(transform.position, direction * rayDistance, out hit, rayDistance) && hit.transform.tag == "Enemy" && Input.GetKeyDown("space"))
         {
             Destroy(hit.transform.gameObject);
+            gun.Play();
+            AudioManager.instance.PlayDeathSound();
             killCount++;
         }
 
