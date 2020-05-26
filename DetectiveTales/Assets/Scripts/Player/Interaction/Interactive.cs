@@ -12,6 +12,9 @@ public class Interactive : MonoBehaviour
     public GameObject secondObjShow;
     public GameObject thirdObjShow;
     public GameObject transition;
+
+    public AudioSource openDoor;
+
     public bool isActive;
     public InteractiveType type;
     public string inventoryName;
@@ -59,6 +62,9 @@ public class Interactive : MonoBehaviour
 
         if (thirdObjShow != null)
             thirdObjShow.SetActive(true);
+
+        if (openDoor != null)
+            openDoor.Play();
 
         if (isFinal == true)
             fadeAnimator.SetTrigger("FadeOut");

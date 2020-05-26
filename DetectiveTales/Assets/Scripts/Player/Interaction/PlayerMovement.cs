@@ -12,7 +12,7 @@ public class PlayerMovement : MonoBehaviour
     private const float maxForwardVelocity = 2.0f;
     private const float maxBackwardVelocity = 2.0f;
     private const float maxStrafeVelocity = 3.0f;
-    private const float maxFallVelocity = 30.0f;
+    //private const float maxFallVelocity = 30.0f;
 
     private const float walkVelocityFactor = 2.0f;
     private const float runVelocityFactor = 4.0f;
@@ -90,10 +90,10 @@ public class PlayerMovement : MonoBehaviour
 
         acceleration.x *= maxStrafeAcceleration * velocityFactor;
 
-        if (controller.isGrounded)
+        /*if (controller.isGrounded)
             acceleration.y = 0f;
         else
-            acceleration.y = -gravityAcceleration;
+            acceleration.y = -gravityAcceleration;*/
     }
 
     private void UpdateVelocity()
@@ -106,8 +106,8 @@ public class PlayerMovement : MonoBehaviour
         velocity.x = acceleration.x == 0f ? 0f : Mathf.Clamp(
             velocity.x, -maxStrafeVelocity * 
             velocityFactor, maxStrafeVelocity * velocityFactor);
-        velocity.y = acceleration.y == 0f ? -0.1f : Mathf.Clamp(
-            velocity.y, -maxFallVelocity, maxFallVelocity);
+        /*velocity.y = acceleration.y == 0f ? -0.1f : Mathf.Clamp(
+            velocity.y, -maxFallVelocity, maxFallVelocity);*/
     }
 
     private void UpdatePosition()

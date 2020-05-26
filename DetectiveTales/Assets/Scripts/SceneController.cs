@@ -28,7 +28,8 @@ public class SceneController : MonoBehaviour
 
     void Update()
     {
-        if(objetiveDone && Input.GetKeyDown("e"))
+        if(//objetiveDone && 
+            Input.GetKeyDown("e"))
         {
             objetiveDone = false;
             if (sceneNumber == 0)
