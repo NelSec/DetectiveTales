@@ -48,7 +48,7 @@ public class ExtCameraMovement : MonoBehaviour
             currentGoalObject++;
         }*/
         if (
-            Input.GetKeyDown("e") && SceneController.instance.objetiveDone /*&& transition.GetComponent<Interactive>().toTransition == true ||
+            Input.GetKeyDown("e") /*&& SceneController.instance.objetiveDone /*&& transition.GetComponent<Interactive>().toTransition == true ||
             Input.GetKeyDown("space") && transition2.GetComponent<Interactive>().toTransition == true ||
             Input.GetKeyDown("space") && transition3.GetComponent<Interactive>().toTransition == true ||
             Input.GetKeyDown("space") && transition4.GetComponent<Interactive>().toTransition == true ||
