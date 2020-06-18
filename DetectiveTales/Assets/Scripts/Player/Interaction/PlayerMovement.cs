@@ -27,6 +27,8 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 motion;
     private float velocityFactor;
 
+    public Animator characterAnim;
+
     void Start()
     {
         controller = GetComponent<CharacterController>();
@@ -108,6 +110,8 @@ public class PlayerMovement : MonoBehaviour
             velocityFactor, maxStrafeVelocity * velocityFactor);
         /*velocity.y = acceleration.y == 0f ? -0.1f : Mathf.Clamp(
             velocity.y, -maxFallVelocity, maxFallVelocity);*/
+
+        //characterAnim.SetBool("Walking", true);
     }
 
     private void UpdatePosition()
