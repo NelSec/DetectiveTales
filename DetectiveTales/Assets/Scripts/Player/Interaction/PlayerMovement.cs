@@ -43,6 +43,7 @@ public class PlayerMovement : MonoBehaviour
     {
         UpdateVelocityFactor();
         UpdateRotation();
+        CheckForMovement();
     }
 
     private void UpdateVelocityFactor()
@@ -110,8 +111,6 @@ public class PlayerMovement : MonoBehaviour
             velocityFactor, maxStrafeVelocity * velocityFactor);
         /*velocity.y = acceleration.y == 0f ? -0.1f : Mathf.Clamp(
             velocity.y, -maxFallVelocity, maxFallVelocity);*/
-
-        //characterAnim.SetBool("Walking", true);
     }
 
     private void UpdatePosition()
@@ -119,5 +118,14 @@ public class PlayerMovement : MonoBehaviour
         motion = transform.TransformVector(velocity * Time.fixedDeltaTime);
 
         controller.Move(motion);
+    }
+
+    void CheckForMovement()
+    {
+        if (velocityFactor != 0.1)
+            characterAnim.SetBool("Walking", true);
+        else if (velocityFactor < 0.1)
+            characterAnim.SetBool("Walking", false);
+
     }
 }
