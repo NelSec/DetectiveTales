@@ -1,9 +1,59 @@
 fileFormatVersion: 2
-guid: 28a4851e2d66b9d44aa26290d20e0a13
+guid: b6dadfce5535b7d43aa53e29585268f5
 ModelImporter:
   serializedVersion: 26
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Aro
+    second: {fileID: 2100000, guid: ee7056172ea57ad4599639ce131a5069, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Chroma
+    second: {fileID: 2100000, guid: 2d55444fd6307a74cb3257ab9018e2a0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Farol.001
+    second: {fileID: 2100000, guid: 0600dc5ec552ad7419549b5d612f27b8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Lamp
+    second: {fileID: 2100000, guid: 9207d33760d851748b90492efe77169f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Lataria
+    second: {fileID: 2100000, guid: ed38d71616a02c0438f20b4f450cc14e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material
+    second: {fileID: 2100000, guid: 5b333f8918905b94fa2b7ff193a3dc81, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.002
+    second: {fileID: 2100000, guid: 0bf837a74aa169947b778516fafcd45d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Pneu
+    second: {fileID: 2100000, guid: 27c51863c68998f469fc9322b49c6f37, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Preto
+    second: {fileID: 2100000, guid: 0556f57b926015e4f9bd3e6c2aae53e3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Vidro
+    second: {fileID: 2100000, guid: e05765aa78c4caa49bbdf03e63fa09bd, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -87,7 +137,7 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 2
+  animationType: 0
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
