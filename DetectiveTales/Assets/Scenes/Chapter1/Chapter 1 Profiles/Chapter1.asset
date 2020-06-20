@@ -1419,7 +1419,7 @@ MonoBehaviour:
     value: 0.564
   colorStrength:
     overrideState: 1
-    value: 1
+    value: 0
   depthSensitivity:
     overrideState: 1
     value: 0.04
