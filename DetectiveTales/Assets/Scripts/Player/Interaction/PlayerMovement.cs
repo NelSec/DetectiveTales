@@ -15,7 +15,7 @@ public class PlayerMovement : MonoBehaviour
     //private const float maxFallVelocity = 30.0f;
 
     private const float walkVelocityFactor = 2.0f;
-    private const float runVelocityFactor = 4.0f;
+    private const float runVelocityFactor = 2.0f;
 
     private CharacterController controller;
 
@@ -43,7 +43,6 @@ public class PlayerMovement : MonoBehaviour
     {
         UpdateVelocityFactor();
         UpdateRotation();
-        CheckForMovement();
     }
 
     private void UpdateVelocityFactor()
@@ -82,6 +81,7 @@ public class PlayerMovement : MonoBehaviour
         UpdateAcceleration();
         UpdateVelocity();
         UpdatePosition();
+        CheckForMovement();
     }
 
     private void UpdateAcceleration()
@@ -122,10 +122,9 @@ public class PlayerMovement : MonoBehaviour
 
     void CheckForMovement()
     {
-        if (velocityFactor != 0.1)
+        if (Input.GetButton("Horizontal") || Input.GetButton("Vertical"))
             characterAnim.SetBool("Walking", true);
-        else if (velocityFactor < 0.1)
+        else
             characterAnim.SetBool("Walking", false);
-
     }
 }
