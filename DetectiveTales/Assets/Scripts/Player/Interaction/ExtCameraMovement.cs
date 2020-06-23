@@ -10,7 +10,7 @@ public class ExtCameraMovement : MonoBehaviour
     [SerializeField]
     private Transform goal = null;
 
-    private Transform previousGoal = null;
+    //private Transform previousGoal = null;
 
     /*public GameObject transition;
     public GameObject transition2;
@@ -29,16 +29,18 @@ public class ExtCameraMovement : MonoBehaviour
     public Animator animator8;
     public Animator animator9;
     public Animator animator10;
+    public Animator animator11;
+    public Animator animator12;
 
     public AudioSource ambient; 
 
     public int currentGoalObject = 0;
-    public int previousGoalObject;
+    //public int previousGoalObject;
     public float speed = 1.0f;
 
     void Update()
     {
-        previousGoalObject = currentGoalObject - 1;
+        //previousGoalObject = currentGoalObject - 1;
         float step = speed * Time.deltaTime;
 
         /*if(Input.GetKeyDown("space") && currentGoalObject < 1)
@@ -83,20 +85,26 @@ public class ExtCameraMovement : MonoBehaviour
                     break;
                 case (8):
                     animator9.SetTrigger("FadeOut9");
-                    ambient.Stop();
+                    //ambient.Stop();
                     break;
                 case (9):
                     animator10.SetTrigger("FadeOut10");
+                    break;
+                case (10):
+                    animator11.SetTrigger("FadeOut11");
+                    break;
+                case (11):
+                    animator12.SetTrigger("FadeOut12");
                     break;
             }
             goal = goalObject[currentGoalObject].transform;
 
             currentGoalObject++;
 
-            if (previousGoalObject >= 0)
+            /*if (previousGoalObject >= 0)
             {
                 previousGoal = goalObject[previousGoalObject].transform;
-            }
+            }*/
         }
         transform.position = Vector3.MoveTowards(
             transform.position, goal.position, step);
