@@ -8,7 +8,7 @@ public class PlayerMovement : MonoBehaviour
     private const float maxStrafeAcceleration = 10.0f;
     private const float gravityAcceleration = 20.0f;
 
-    private const float maxAngularVelocity = 100.0f;
+    private const float maxAngularVelocity = 120.0f;
     private const float maxForwardVelocity = 2.0f;
     private const float maxBackwardVelocity = 2.0f;
     private const float maxStrafeVelocity = 3.0f;
