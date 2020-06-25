@@ -28,6 +28,9 @@ public class PlayerMovement : MonoBehaviour
     private float velocityFactor;
 
     public Animator characterAnim;
+    public Animator bartenderAnim;
+
+    public Collider awareTrigger;
 
     void Start()
     {
@@ -126,5 +129,15 @@ public class PlayerMovement : MonoBehaviour
             characterAnim.SetBool("Walking", true);
         else
             characterAnim.SetBool("Walking", false);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        bartenderAnim.SetTrigger("Aware");       
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        bartenderAnim.SetTrigger("Idle");
     }
 }
