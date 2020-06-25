@@ -20,7 +20,7 @@ public class TargetMovement : MonoBehaviour
     void Update()
     {
         hValue = Input.GetAxis("Horizontal");
-        vValue = Input.GetAxis("Vertical");
+        vValue = Input.GetAxis("VerticalComplete");
         Vector3 direction = new Vector3(hValue,vValue,0f);
 
         rb.velocity = direction * 200f * Time.deltaTime;

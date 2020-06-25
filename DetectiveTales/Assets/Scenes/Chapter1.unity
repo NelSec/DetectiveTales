@@ -440,6 +440,12 @@ Transform:
   m_Father: {fileID: 1291749779}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &76235193 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4431728144811800710, guid: f4867fdfbc7f30e43b9241a07dd7dc49,
+    type: 3}
+  m_PrefabInstance: {fileID: 3151011794819437086}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &78482635
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6861,7 +6867,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 3151011794819437086}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 76235193}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 20e9ab1b2a34ced43a20da36c22ec6e0, type: 3}
@@ -15428,6 +15434,10 @@ PrefabInstance:
       propertyPath: interactionText
       value: Get in car
       objectReference: {fileID: 0}
+    - target: {fileID: 1588205705, guid: f4867fdfbc7f30e43b9241a07dd7dc49, type: 3}
+      propertyPath: secondObjHide
+      value: 
+      objectReference: {fileID: 76235193}
     - target: {fileID: 1722582195, guid: f4867fdfbc7f30e43b9241a07dd7dc49, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -16809,6 +16819,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_UiScaleMode
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4431728144811800717, guid: f4867fdfbc7f30e43b9241a07dd7dc49,
+        type: 3}
+      propertyPath: m_AdditionalShaderChannelsFlag
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 4685836147032657224, guid: f4867fdfbc7f30e43b9241a07dd7dc49,
         type: 3}
