@@ -21,6 +21,8 @@ public class RayCast : MonoBehaviour
 
     public bool allKilled;
 
+    public Animator gunAnim;
+
     RaycastHit hit;
 
     private static RayCast _instance;
@@ -53,6 +55,7 @@ public class RayCast : MonoBehaviour
             Destroy(hit.transform.gameObject);
             gun.Play();
             AudioManager.instance.PlayDeathSound();
+            gunAnim.SetTrigger("Kill");
             killCount++;
         }
 
