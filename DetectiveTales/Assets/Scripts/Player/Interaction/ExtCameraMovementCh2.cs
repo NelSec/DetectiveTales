@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ExtCameraMovement : MonoBehaviour
+public class ExtCameraMovementCh2 : MonoBehaviour
 {
     [SerializeField]
     private GameObject[] goalObject = null;
@@ -32,6 +32,8 @@ public class ExtCameraMovement : MonoBehaviour
     public Animator animator11;
     public Animator animator12;
 
+    public AudioSource ambient; 
+
     public int currentGoalObject = 0;
     //public int previousGoalObject;
     public float speed = 1.0f;
@@ -59,12 +61,14 @@ public class ExtCameraMovement : MonoBehaviour
             {
                 case (0):
                     animator.SetTrigger("FadeOut");
+                    ambient.Play();
                     break;
                 case (1):
                     animator2.SetTrigger("FadeOut2");
                     break;
                 case (2):
                     animator3.SetTrigger("FadeOut3");
+                    ambient.Stop();
                     break;
                 case (3):
                     animator4.SetTrigger("FadeOut4");
