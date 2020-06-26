@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ExtCameraMovement : MonoBehaviour
 {
@@ -94,6 +95,12 @@ public class ExtCameraMovement : MonoBehaviour
                     animator12.SetTrigger("FadeOut12");
                     break;
             }
+
+            if (goalObject.Length == currentGoalObject)
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            }
+
             goal = goalObject[currentGoalObject].transform;
 
             currentGoalObject++;
