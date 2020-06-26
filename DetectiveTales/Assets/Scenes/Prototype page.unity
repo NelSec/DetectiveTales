@@ -1153,16 +1153,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1757486848}
     m_Modifications:
-    - target: {fileID: 1987101919, guid: edd5d98cfc157b846a8c16f00614ca39, type: 3}
-      propertyPath: sharedProfile
-      value: 
-      objectReference: {fileID: 11400000, guid: df41155f97545cb43ab7ea57a926b904,
-        type: 2}
-    - target: {fileID: 256486082410845873, guid: edd5d98cfc157b846a8c16f00614ca39,
-        type: 3}
-      propertyPath: far clip plane
-      value: 20000
-      objectReference: {fileID: 0}
     - target: {fileID: 256486082892757196, guid: edd5d98cfc157b846a8c16f00614ca39,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1223,21 +1213,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Medium
       objectReference: {fileID: 0}
-    - target: {fileID: 256486082892757197, guid: edd5d98cfc157b846a8c16f00614ca39,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 256486083058651790, guid: edd5d98cfc157b846a8c16f00614ca39,
         type: 3}
       propertyPath: crash
       value: 
       objectReference: {fileID: 725320404}
-    - target: {fileID: 6253716720424553986, guid: edd5d98cfc157b846a8c16f00614ca39,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: edd5d98cfc157b846a8c16f00614ca39, type: 3}
 --- !u!1 &572354406
@@ -2849,16 +2829,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1757486848}
     m_Modifications:
-    - target: {fileID: 368153849, guid: 0449d615b9cec9044b5042b26591a370, type: 3}
-      propertyPath: sharedProfile
-      value: 
-      objectReference: {fileID: 11400000, guid: df41155f97545cb43ab7ea57a926b904,
-        type: 2}
-    - target: {fileID: 1324016606356985787, guid: 0449d615b9cec9044b5042b26591a370,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5369117363350059294, guid: 0449d615b9cec9044b5042b26591a370,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2919,46 +2889,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hard
       objectReference: {fileID: 0}
-    - target: {fileID: 5369117363350059295, guid: 0449d615b9cec9044b5042b26591a370,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5725837255833301020, guid: 0449d615b9cec9044b5042b26591a370,
         type: 3}
       propertyPath: crash
       value: 
       objectReference: {fileID: 725320404}
-    - target: {fileID: 5725837256221062177, guid: 0449d615b9cec9044b5042b26591a370,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 15.47
-      objectReference: {fileID: 0}
-    - target: {fileID: 5725837256221062177, guid: 0449d615b9cec9044b5042b26591a370,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -8.55
-      objectReference: {fileID: 0}
-    - target: {fileID: 5725837256221062177, guid: 0449d615b9cec9044b5042b26591a370,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0.37186396
-      objectReference: {fileID: 0}
-    - target: {fileID: 5725837256221062177, guid: 0449d615b9cec9044b5042b26591a370,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.92828727
-      objectReference: {fileID: 0}
-    - target: {fileID: 5725837256221062177, guid: 0449d615b9cec9044b5042b26591a370,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 43.661003
-      objectReference: {fileID: 0}
-    - target: {fileID: 5725837256221062179, guid: 0449d615b9cec9044b5042b26591a370,
-        type: 3}
-      propertyPath: m_TargetTexture
-      value: 
-      objectReference: {fileID: 8400000, guid: cb499a67115597141a2237358ab5c585, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0449d615b9cec9044b5042b26591a370, type: 3}
 --- !u!1 &1432620366

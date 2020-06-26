@@ -3,7 +3,87 @@ guid: 9f5338b38789e6746967339306e2959a
 ModelImporter:
   serializedVersion: 26
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BRKGlass
+    second: {fileID: 2100000, guid: 914dd34e5e31db74997ad40198d5437e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ButtonGlass
+    second: {fileID: 2100000, guid: 66c39fd4b8d9e7044aac0665445c9e1b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Glass
+    second: {fileID: 2100000, guid: 0e4d426abb7d92947b50524a89c3f7fd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: HDLight
+    second: {fileID: 2100000, guid: 3dcfad7fbd54cf6408d00c7d22d5b553, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: InstrGlass
+    second: {fileID: 2100000, guid: 4551de714a395cc429399db75ddf4926, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: StWGlass
+    second: {fileID: 2100000, guid: e2cc48767c02d374190e2747ae3b7338, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TRNGlass
+    second: {fileID: 2100000, guid: a109ed9c65fba1f4f98d519d77b02186, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: body01
+    second: {fileID: 2100000, guid: 5ae48611fa2773340a90641db6b01e44, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: floor01
+    second: {fileID: 2100000, guid: 97fe22923e59bc44b8b39a01e0f02274, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: frwheel01
+    second: {fileID: 2100000, guid: f3d9860f86fcf364cbbd82fe28456811, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: instr01
+    second: {fileID: 2100000, guid: ef459bc39a66f1a4080a985826d9164b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: intr01
+    second: {fileID: 2100000, guid: 77b2260387b13d64d9a7f652e7f0538d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lights01
+    second: {fileID: 2100000, guid: 206ac7ff079977e42b45023a5007ae1d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: roof01
+    second: {fileID: 2100000, guid: ba0dc92aa7afbc44082b18052b587164, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: rwheel01
+    second: {fileID: 2100000, guid: c62b6ee3343f9da48a4b27794fbb700c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: stwheel01
+    second: {fileID: 2100000, guid: 3f3eeb2d27ba4cc4391bc27fe34baece, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
