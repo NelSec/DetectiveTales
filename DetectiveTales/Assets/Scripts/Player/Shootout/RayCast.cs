@@ -52,7 +52,7 @@ public class RayCast : MonoBehaviour
 
         if (Physics.Raycast(transform.position, direction * rayDistance, out hit, rayDistance) && hit.transform.tag == "Enemy" && Input.GetKeyDown("space"))
         {
-            Destroy(hit.transform.gameObject, 10f);
+            Destroy(hit.transform.gameObject);
             gun.Play();
             AudioManager.instance.PlayDeathSound();
             gunAnim.SetTrigger("Kill");
