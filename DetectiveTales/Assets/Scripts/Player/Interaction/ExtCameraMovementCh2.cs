@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ExtCameraMovementCh2 : MonoBehaviour
 {
@@ -98,6 +99,12 @@ public class ExtCameraMovementCh2 : MonoBehaviour
                     animator12.SetTrigger("FadeOut12");
                     break;
             }
+
+            if (goalObject.Length == currentGoalObject)
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            }
+
             goal = goalObject[currentGoalObject].transform;
 
             currentGoalObject++;
@@ -107,6 +114,9 @@ public class ExtCameraMovementCh2 : MonoBehaviour
                 previousGoal = goalObject[previousGoalObject].transform;
             }*/
         }
+        else if (Input.GetKeyDown("m"))
+            SceneManager.LoadScene("Menu");
+
         transform.position = Vector3.MoveTowards(
             transform.position, goal.position, step);
     }

@@ -11,6 +11,15 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
+    public void Continue()
+    {
+        if (DataManagement.datamanagement.levelTwo)
+        {
+            SceneManager.LoadScene("Chapter2");
+            Debug.Log("clicked continue");
+        }
+    }
+
     public void ExitGame()
     {
         Application.Quit();

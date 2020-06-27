@@ -96,8 +96,11 @@ public class ExtCameraMovement : MonoBehaviour
                     break;
             }
 
-            if (goalObject.Length == currentGoalObject)
+            if (currentGoalObject >= goalObject.Length)
             {
+                DataManagement.datamanagement.levelTwo = true;
+                DataManagement.datamanagement.SaveData();
+                Debug.Log("DataManagement.datamanagement.levelTwo");
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
             }
 
@@ -110,6 +113,9 @@ public class ExtCameraMovement : MonoBehaviour
                 previousGoal = goalObject[previousGoalObject].transform;
             }*/
         }
+        else if(Input.GetKeyDown("m"))
+            SceneManager.LoadScene("Menu");
+
         transform.position = Vector3.MoveTowards(
             transform.position, goal.position, step);
     }
