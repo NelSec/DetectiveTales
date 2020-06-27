@@ -15261,6 +15261,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 1373
       objectReference: {fileID: 0}
+    - target: {fileID: 776120191, guid: f4867fdfbc7f30e43b9241a07dd7dc49, type: 3}
+      propertyPath: sharedProfile
+      value: 
+      objectReference: {fileID: 11400000, guid: 2e2254698d3c21d43b76bce6dc7070a6,
+        type: 2}
     - target: {fileID: 929504763, guid: f4867fdfbc7f30e43b9241a07dd7dc49, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -16257,6 +16262,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 1.9553951
       objectReference: {fileID: 0}
+    - target: {fileID: 3151011793865094058, guid: f4867fdfbc7f30e43b9241a07dd7dc49,
+        type: 3}
+      propertyPath: sharedProfile
+      value: 
+      objectReference: {fileID: 11400000, guid: ec30985f938608246adfc08efeedab53,
+        type: 2}
     - target: {fileID: 3151011794365950091, guid: f4867fdfbc7f30e43b9241a07dd7dc49,
         type: 3}
       propertyPath: characterAnim

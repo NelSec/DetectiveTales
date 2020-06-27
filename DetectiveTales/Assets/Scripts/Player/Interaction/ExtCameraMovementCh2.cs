@@ -77,7 +77,7 @@ public class ExtCameraMovementCh2 : MonoBehaviour
                 case (3):
                     animator4.SetTrigger("FadeOut4");
                     break;
-                case (4):
+                /*case (4):
                     animator5.SetTrigger("FadeOut5");
                     break;
                 case (5):
@@ -100,7 +100,7 @@ public class ExtCameraMovementCh2 : MonoBehaviour
                     break;
                 case (11):
                     animator12.SetTrigger("FadeOut12");
-                    break;
+                    break;*/
             }
 
             if (goalObject.Length == currentGoalObject)
