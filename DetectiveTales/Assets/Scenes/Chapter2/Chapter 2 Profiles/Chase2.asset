@@ -107,7 +107,7 @@ MonoBehaviour:
     value: {x: 1, y: 0.034256577, z: 0.11668788, w: 0}
   gamma:
     overrideState: 1
-    value: {x: 1, y: 0.0050428207, z: 0.004505992, w: 0}
+    value: {x: 0.30571973, y: 1, z: 0, w: 0}
   gain:
     overrideState: 1
     value: {x: 0.093794584, y: 1, z: 0.37481263, w: 0}
@@ -1357,7 +1357,7 @@ MonoBehaviour:
     value: 1
   bandingLevels:
     overrideState: 1
-    value: 4
+    value: 3
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
