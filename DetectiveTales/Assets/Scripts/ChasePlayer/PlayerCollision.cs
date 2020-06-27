@@ -8,14 +8,25 @@ public class PlayerCollision : MonoBehaviour
 
     private Vector3 initialPos;
 
+    public bool crashed = false;
+
+    private static PlayerCollision _instance;
+
+    public static PlayerCollision instance
+    {
+        get { return _instance; }
+    }
+
     private void Start()
     {
+        _instance = this;
         initialPos = transform.position;
     }
     void OnCollisionEnter (Collision collisionInfo)
     {
         if (collisionInfo.collider.tag == "Obstacle")
         {
+            crashed = true;
             transform.position = initialPos;
             crash.Play();
             //movement.enabled = false;
