@@ -57,7 +57,7 @@ public class RayCast : MonoBehaviour
 
         if (Physics.Raycast(transform.position, direction * rayDistance, out hit, rayDistance) && hit.transform.tag == "Enemy" && Input.GetKeyDown("space"))
         {
-            Destroy(hit.transform.gameObject, 5f);
+            //Destroy(hit.transform.gameObject, 5f);
             gun.Play();
             AudioManager.instance.PlayDeathSound();
             gunAnim.SetTrigger("Kill");
@@ -67,7 +67,7 @@ public class RayCast : MonoBehaviour
 
         if (Physics.Raycast(transform.position, direction * rayDistance, out hit, rayDistance) && hit.transform.tag == "Enemy2" && Input.GetKeyDown("space"))
         {
-            Destroy(hit.transform.gameObject, 5f);
+            //Destroy(hit.transform.gameObject, 5f);
             gun.Play();
             AudioManager.instance.PlayDeathSound();
             gunAnim.SetTrigger("Kill");
@@ -77,7 +77,7 @@ public class RayCast : MonoBehaviour
 
         if (Physics.Raycast(transform.position, direction * rayDistance, out hit, rayDistance) && hit.transform.tag == "Enemy3" && Input.GetKeyDown("space"))
         {
-            Destroy(hit.transform.gameObject, 5f);
+            //Destroy(hit.transform.gameObject, 5f);
             gun.Play();
             AudioManager.instance.PlayDeathSound();
             gunAnim.SetTrigger("Kill");
@@ -87,7 +87,7 @@ public class RayCast : MonoBehaviour
 
         if (Physics.Raycast(transform.position, direction * rayDistance, out hit, rayDistance) && hit.transform.tag == "Enemy4" && Input.GetKeyDown("space"))
         {
-            Destroy(hit.transform.gameObject, 5f);
+            //Destroy(hit.transform.gameObject, 5f);
             gun.Play();
             AudioManager.instance.PlayDeathSound();
             gunAnim.SetTrigger("Kill");
@@ -97,7 +97,7 @@ public class RayCast : MonoBehaviour
 
         if (Physics.Raycast(transform.position, direction * rayDistance, out hit, rayDistance) && hit.transform.tag == "Enemy5" && Input.GetKeyDown("space"))
         {
-            Destroy(hit.transform.gameObject, 5f);
+            //Destroy(hit.transform.gameObject, 5f);
             gun.Play();
             AudioManager.instance.PlayDeathSound();
             gunAnim.SetTrigger("Kill");

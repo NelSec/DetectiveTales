@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class PauseMenu2 : MonoBehaviour
+public class PauseEnemies : MonoBehaviour
 {
 
     private static bool gameStoped = false;
@@ -12,7 +12,7 @@ public class PauseMenu2 : MonoBehaviour
 
     void Update()
     {
-        if (RayCast.instance.timeLeft <= 0.02f && !RayCast.instance.allKilled)
+        if (RayCast.instance.timeLeft <= 0.1f && !RayCast.instance.allKilled)
         {
             Died();
 
@@ -32,6 +32,7 @@ public class PauseMenu2 : MonoBehaviour
 
     private void TryAgain()
     {
+        RayCast.instance.timeLeft = 10f;
         pauseMenu.SetActive(false);
         Time.timeScale = 1f;
         gameStoped = false;
