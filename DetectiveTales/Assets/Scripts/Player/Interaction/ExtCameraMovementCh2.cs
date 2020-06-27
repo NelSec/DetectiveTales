@@ -33,7 +33,8 @@ public class ExtCameraMovementCh2 : MonoBehaviour
     public Animator animator11;
     public Animator animator12;
 
-    public AudioSource ambient; 
+    public AudioSource ambient;
+    public AudioSource engine;
 
     public int currentGoalObject = 0;
     //public int previousGoalObject;
@@ -63,6 +64,7 @@ public class ExtCameraMovementCh2 : MonoBehaviour
                 case (0):
                     animator.SetTrigger("FadeOut");
                     ambient.Play();
+                    engine.Play();
                     break;
                 case (1):
                     animator2.SetTrigger("FadeOut2");
@@ -70,6 +72,7 @@ public class ExtCameraMovementCh2 : MonoBehaviour
                 case (2):
                     animator3.SetTrigger("FadeOut3");
                     ambient.Stop();
+                    engine.Stop();
                     break;
                 case (3):
                     animator4.SetTrigger("FadeOut4");
