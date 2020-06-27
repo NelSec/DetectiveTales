@@ -103,7 +103,7 @@ public class ExtCameraMovementCh2 : MonoBehaviour
                     break;*/
             }
 
-            if (goalObject.Length == currentGoalObject)
+            if (currentGoalObject >= goalObject.Length)
             {
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
             }
