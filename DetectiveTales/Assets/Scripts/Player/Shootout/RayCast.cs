@@ -22,6 +22,11 @@ public class RayCast : MonoBehaviour
     public bool allKilled;
 
     public Animator gunAnim;
+    public Animator enemyKill;
+    public Animator enemyKill2;
+    public Animator enemyKill3;
+    public Animator enemyKill4;
+    public Animator enemyKill5;
 
     RaycastHit hit;
 
@@ -52,10 +57,51 @@ public class RayCast : MonoBehaviour
 
         if (Physics.Raycast(transform.position, direction * rayDistance, out hit, rayDistance) && hit.transform.tag == "Enemy" && Input.GetKeyDown("space"))
         {
-            Destroy(hit.transform.gameObject);
+            Destroy(hit.transform.gameObject, 5f);
             gun.Play();
             AudioManager.instance.PlayDeathSound();
             gunAnim.SetTrigger("Kill");
+            enemyKill.SetTrigger("Dead");
+            killCount++;
+        }
+
+        if (Physics.Raycast(transform.position, direction * rayDistance, out hit, rayDistance) && hit.transform.tag == "Enemy2" && Input.GetKeyDown("space"))
+        {
+            Destroy(hit.transform.gameObject, 5f);
+            gun.Play();
+            AudioManager.instance.PlayDeathSound();
+            gunAnim.SetTrigger("Kill");
+            enemyKill2.SetTrigger("Dead");
+            killCount++;
+        }
+
+        if (Physics.Raycast(transform.position, direction * rayDistance, out hit, rayDistance) && hit.transform.tag == "Enemy3" && Input.GetKeyDown("space"))
+        {
+            Destroy(hit.transform.gameObject, 5f);
+            gun.Play();
+            AudioManager.instance.PlayDeathSound();
+            gunAnim.SetTrigger("Kill");
+            enemyKill3.SetTrigger("Dead");
+            killCount++;
+        }
+
+        if (Physics.Raycast(transform.position, direction * rayDistance, out hit, rayDistance) && hit.transform.tag == "Enemy4" && Input.GetKeyDown("space"))
+        {
+            Destroy(hit.transform.gameObject, 5f);
+            gun.Play();
+            AudioManager.instance.PlayDeathSound();
+            gunAnim.SetTrigger("Kill");
+            enemyKill4.SetTrigger("Dead");
+            killCount++;
+        }
+
+        if (Physics.Raycast(transform.position, direction * rayDistance, out hit, rayDistance) && hit.transform.tag == "Enemy5" && Input.GetKeyDown("space"))
+        {
+            Destroy(hit.transform.gameObject, 5f);
+            gun.Play();
+            AudioManager.instance.PlayDeathSound();
+            gunAnim.SetTrigger("Kill");
+            enemyKill5.SetTrigger("Dead");
             killCount++;
         }
 

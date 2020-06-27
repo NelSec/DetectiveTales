@@ -9,6 +9,10 @@ TagManager:
   - Obstacle
   - End
   - Medium
+  - Enemy2
+  - Enemy3
+  - Enemy4
+  - Enemy5
   layers:
   - Default
   - TransparentFX
