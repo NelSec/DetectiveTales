@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SceneController : MonoBehaviour
+public class SceneControllerCh2 : MonoBehaviour
 {
-    private static SceneController _instance;
+    private static SceneControllerCh2 _instance;
 
     public bool updateOn;
 
-    public static SceneController instance
+    public static SceneControllerCh2 instance
     {
         get { return _instance; }
     }
@@ -31,8 +31,8 @@ public class SceneController : MonoBehaviour
 
     void Update()
     {
-        if(objetiveDone && 
-            updateOn == true && Input.GetKeyDown("e"))
+        if(//objetiveDone && 
+            updateOn == true && Input.GetKeyDown("l"))
         {
             objetiveDone = false;
             if (sceneNumber == 0)

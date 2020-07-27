@@ -49,7 +49,7 @@ public class ExtCameraMovement : MonoBehaviour
             currentGoalObject++;
         }*/
         if (
-            Input.GetKeyDown("e") /*&& SceneController.instance.objetiveDone /*&& transition.GetComponent<Interactive>().toTransition == true ||
+            Input.GetKeyDown("e") && SceneController.instance.objetiveDone /*&& transition.GetComponent<Interactive>().toTransition == true ||
             Input.GetKeyDown("space") && transition2.GetComponent<Interactive>().toTransition == true ||
             Input.GetKeyDown("space") && transition3.GetComponent<Interactive>().toTransition == true ||
             Input.GetKeyDown("space") && transition4.GetComponent<Interactive>().toTransition == true ||
@@ -98,9 +98,9 @@ public class ExtCameraMovement : MonoBehaviour
 
             if (currentGoalObject >= goalObject.Length)
             {
-                DataManagement.datamanagement.levelTwo = true;
+                /*DataManagement.datamanagement.levelTwo = true;
                 DataManagement.datamanagement.SaveData();
-                Debug.Log("DataManagement.datamanagement.levelTwo");
+                Debug.Log("DataManagement.datamanagement.levelTwo");*/
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
             }
 

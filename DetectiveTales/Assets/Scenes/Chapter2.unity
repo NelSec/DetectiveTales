@@ -4701,6 +4701,7 @@ GameObject:
   m_Component:
   - component: {fileID: 465637087}
   - component: {fileID: 465637086}
+  - component: {fileID: 465637088}
   m_Layer: 0
   m_Name: SceneController
   m_TagString: Untagged
@@ -4715,11 +4716,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 465637085}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d3484a497f0fec8438ba84f0e7076fe5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  updateOn: 0
   sceneNumber: 0
   objetiveDone: 0
   scenes:
@@ -4742,6 +4744,27 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &465637088
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 465637085}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26bbf70fc95ee7643a900493322be767, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  updateOn: 0
+  sceneNumber: 0
+  objetiveDone: 0
+  scenes:
+  - {fileID: 206065492}
+  - {fileID: 287021577}
+  - {fileID: 80219109}
+  - {fileID: 1533914994}
+  warningText: {fileID: 1395784126}
 --- !u!224 &498657451 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4885306953160194765, guid: 21c6436c749120948a7ea55f912e1f17,

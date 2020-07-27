@@ -7345,6 +7345,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3484a497f0fec8438ba84f0e7076fe5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  updateOn: 0
   sceneNumber: 0
   objetiveDone: 0
   scenes:
