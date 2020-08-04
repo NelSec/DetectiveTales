@@ -17671,6 +17671,12 @@ Transform:
   m_Father: {fileID: 1291749779}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &1643096932 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 20850620136463126, guid: f4867fdfbc7f30e43b9241a07dd7dc49,
+    type: 3}
+  m_PrefabInstance: {fileID: 3151011794819437086}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1648010201
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21407,6 +21413,11 @@ PrefabInstance:
       propertyPath: thirdObjHide
       value: 
       objectReference: {fileID: 1498080904}
+    - target: {fileID: 3005874725716405749, guid: f4867fdfbc7f30e43b9241a07dd7dc49,
+        type: 3}
+      propertyPath: CharAnim
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 3005874725804255649, guid: f4867fdfbc7f30e43b9241a07dd7dc49,
         type: 3}
       propertyPath: firstObjHide
@@ -21447,6 +21458,11 @@ PrefabInstance:
       propertyPath: thirdObjShow
       value: 
       objectReference: {fileID: 431791803}
+    - target: {fileID: 3005874726580600646, guid: f4867fdfbc7f30e43b9241a07dd7dc49,
+        type: 3}
+      propertyPath: CharAnim
+      value: 
+      objectReference: {fileID: 1643096932}
     - target: {fileID: 3077817325344996949, guid: f4867fdfbc7f30e43b9241a07dd7dc49,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

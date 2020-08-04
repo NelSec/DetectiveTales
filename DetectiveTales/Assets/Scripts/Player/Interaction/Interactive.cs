@@ -27,6 +27,7 @@ public class Interactive : MonoBehaviour
     public Interactive[] activationChain;
     public Interactive[] interactionChain;
 
+    public Animator CharAnim;
     public Animator fadeAnimator;
     private Animator animator;
 
@@ -107,5 +108,15 @@ public class Interactive : MonoBehaviour
     public void OnFadeComplete()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        CharAnim.SetBool("Reaching", true);
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        CharAnim.SetBool("Reaching", false);
     }
 }
