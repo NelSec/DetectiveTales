@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SceneController : MonoBehaviour
 {
@@ -32,7 +33,7 @@ public class SceneController : MonoBehaviour
     void Update()
     {
         if(objetiveDone && 
-            updateOn == true && Input.GetKeyDown("e"))
+            updateOn == true /*&& Input.GetKeyDown("space")*/)
         {
             objetiveDone = false;
             if (sceneNumber == 0)
@@ -45,14 +46,15 @@ public class SceneController : MonoBehaviour
             sceneNumber++;
         }
 
-        if (sceneNumber >= scenes.Length)
+        if (sceneNumber >= scenes.Length && Input.GetKeyDown("e"))
         {
             updateOn = false;
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
 
-        if (objetiveDone)
+        /*if (objetiveDone)
             warningText.SetActive(true);
         else
-            warningText.SetActive(false);
+            warningText.SetActive(false);*/
     }
 }
