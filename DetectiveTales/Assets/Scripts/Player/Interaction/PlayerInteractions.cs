@@ -18,6 +18,8 @@ public class PlayerInteractions : MonoBehaviour
     public bool isConversation = false;
     private List<Interactive> inventory;
 
+    public AudioSource inRange;
+
     public void Start()
     {
         cameraTransform = GetComponentInChildren<Camera>().transform;
@@ -52,7 +54,10 @@ public class PlayerInteractions : MonoBehaviour
                 hitInfo.collider.GetComponent<Interactive>();
 
             if (newInteractive != null && newInteractive != currentInteractive)
+            {
                 SetCurrentInteractive(newInteractive);
+                inRange.Play();
+            }               
             else if (newInteractive == null)
                 ClearCurrentInteractive();
         }
