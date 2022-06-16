@@ -57,4 +57,17 @@ public class SceneController : MonoBehaviour
         else
             warningText.SetActive(false);*/
     }
+
+    public void UpdateScene()
+    {
+        objetiveDone = false;
+        if (sceneNumber == 0)
+            scenes[sceneNumber].SetActive(true);
+        else
+        {
+            scenes[sceneNumber].SetActive(true);
+            scenes[sceneNumber - 1].SetActive(false);
+        }
+        sceneNumber++;
+    }
 }
